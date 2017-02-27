@@ -1,0 +1,142 @@
+set nocompatible "This may not be neccessary, it is by default on.
+set title "Show currently edited file in the title of term window.
+set number "Show line numbers.
+set numberwidth=4 "Spacing always given to these numbers.
+set history=1000 "Default is 20, I'd rather set this to ∞
+set laststatus=2 "Always show file status line.
+set encoding=utf-8 "Always use encoding UTF-8.
+
+"Allow mouse in vim
+set mouse=a
+set ttymouse=xterm2
+
+set backupcopy=yes "Do not use swaps and update directly files.
+"This is due to the usage of hot reaload when developing React.
+
+" Settings of tabs
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+set expandtab "Use spaces instead tabs
+
+"Setup directories for tmp files.
+set undofile "Maintain undo history between sessions.
+set undodir=~/.vim/undodir "Dir for undo history.
+set directory=~/.vim/swps "Dir for swp files.
+
+"Set the X window register for vim clipboard
+set clipboard=unnamedplus
+
+" Vim Plug Settings
+call plug#begin()
+Plug 'tpope/vim-sensible' "Common ground of all vim users.
+Plug 'tpope/vim-surround' "Change surroundings easily
+Plug 'tpope/vim-commentary' "Comment multiple lines at once.
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat' "Enable . for special commands.
+Plug 'airblade/vim-gitgutter' "Show changed lines in gutter.
+Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files.
+Plug 'henrik/vim-indexed-search' "Adds number of results to search.
+Plug 'Yggdroot/indentLine' "Better & smarter indentation rules.
+Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis.
+Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor.
+Plug 'junegunn/vim-peekaboo'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser.
+Plug 'tpope/vim-fugitive' "Helpful git addon.
+Plug 'scrooloose/syntastic' "Linting
+Plug 'Valloric/MatchTagAlways' "Highlight matching tag.
+Plug 'alvan/vim-closetag' "Auto complete closetags.
+Plug 'Valloric/YouCompleteMe' "Intelisense
+Plug 'pbrisbin/vim-mkdir' "Create dirs using vim.
+Plug 'mhinz/vim-startify' " Startify, super cool
+
+" Languages
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'gavocanov/vim-js-indent'
+Plug 'elzr/vim-json'
+Plug 'leafgarland/typescript-vim'
+" CSS & LESS
+Plug 'groenewege/vim-less'
+Plug 'ap/vim-css-color'
+" Others
+Plug 'rdolgushin/gitignore.vim'
+Plug 'evanmiller/nginx-vim-syntax'
+
+" Vim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim' " Generate airline color settings for tmux
+call plug#end()
+
+filetype plugin indent on "Enable filetype specific indent scripts
+
+nmap <CR> o<Esc>k
+" Enter newlines without entering insert mode
+" Toggle file menu
+map <C-n> :NERDTreeToggle<CR>
+
+" Tab Navigation
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tn  :tabnew<CR>
+nnoremap lo  :lopen<CR>
+nnoremap lc  :lclose<CR>
+
+colorscheme monokai "Setup for monokai colors
+
+set cursorline "Highlight current line
+
+" Airline theme dark
+let g:airline_theme='behelit'
+
+" Enable JSX syntax highlighting in .js files
+let g:jsx_ext_required = 0
+
+" Syntastic status lines for eslint
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['tsc']
+
+" Fugitive to status line
+set statusline+=%{fugitive#statusline()}
+
+" Aitline status line
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" Enable tag matching in these files
+let g:mta_use_matchparen_group = 1
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'javascript.jsx' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}
+
+"Closing hmtl tags
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+
+"Set some frontend filetypes
+autocmd BufNewFile,BufRead .babelrc set filetype=javascript
+autocmd BufNewFile,BufRead .eslintrc,.reduxrc set filetype=json
+autocmd BufNewFile,BufRead gitconfig set filetype=gitconfig
+
+let g:vim_json_syntax_conceal = 0 "Dont hide JSON syntax.
+
+let g:HiCursorWords_delay = 100 "Set cursor word highlight to 100ms
+
+map <Space> <Leader>
+

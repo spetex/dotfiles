@@ -1,0 +1,54 @@
+[user]
+	name = Petr Sahula
+	email = mail@spetex.cz
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[color]
+    status=auto
+    branch=auto
+    interactive=auto
+    diff=auto
+[push]
+	default = current
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[alias]
+	f = fetch
+	# updates your branch with upstream (if fast-forward is possible)
+	ff = !git merge --ff-only `git rev-parse --symbolic-full-name --abbrev-ref=strict HEAD@{u}`
+	fp = fetch --prune
+	st = status
+	cm = commit
+	cma = commit --amend
+	br = branch
+	co = checkout
+	cp = cherry-pick
+	df = diff
+	rb = rebase
+	rbi = rebase -i
+	rbc = rebase --continue
+	rh = reset --hard
+	su = submodule update
+	# graph for current branch
+  #l  = log --graph --decorate --pretty=oneline --abbrev-commit --date=relative
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	# graph for all branches
+  #ll = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+	# log for current branch showing diffs (-m is for showing mergecommits too)
+	ld = log -p -m
+	# log for current branch showing summary of changed files (-m is for showing mergecommits too)
+	ls = log --stat --decorate
+	# number of commits for each person
+	stats = shortlog -n -s --no-merges
+	# remove remote branch (remote must be named origin), usage: git rmb test
+	rmb = !sh -c 'git push origin :$1' -
+	# shows local > tracked remote
+	brt = for-each-ref --format=\"%(refname:short) -> %(upstream:short)\" refs/heads
+	# get upstream tracked branch or error
+	brtracked = rev-parse --symbolic-full-name --abbrev-ref=strict HEAD@{u}
+	# commit all changes to a WIP commit
+	wip = !git add --all && git commit -m WIP
+  # delete all merged branches not master, develop, development, release, next, test
+  brtrim = "!git branch --merged | grep -v '\\*\\|master$\\|dev$\\|develop$\\|development$\\|release$\\|next$\\|test$\\|release$' | xargs -n 1 git branch -d"
