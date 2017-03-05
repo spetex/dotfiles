@@ -37,7 +37,7 @@ module.exports = {
     showWindowControls: 'left',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '10px 12px 20px 12px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -98,7 +98,13 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+    "hyper-statusline",
+    "hyperterm-tabs",
+    "hyperterm-dibdabs",
+    "hypercwd",
+    "hyperterm-paste",
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
