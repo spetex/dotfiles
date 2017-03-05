@@ -1,0 +1,26 @@
+"*":
+  build:
+    buildOnSave: true
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "language-gfm"
+    ]
+    projectHome: "/home/spetex/Repo"
+    telemetryConsent: "limited"
+    themes: [
+      "atom-dark-ui"
+      "monokai"
+    ]
+  editor:
+    fontFamily: "Roboto Mono for Powerline"
+    fontSize: 12
+  "exception-reporting":
+    userId: "93bbc1eb-8ff5-43b4-827f-1dd67388597f"
+  racer:
+    cargoHome: "/home/spetex/.cargo/"
+    racerBinPath: "/home/spetex/.cargo/bin/racer"
+    rustSrcPath: "/home/spetex/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/"
+".js.jsx.source":
+  editor:
+    scrollPastEnd: true
