@@ -120,7 +120,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['tsc']
-let g:syntastic_rust_checkers = ['rst']
+let g:syntastic_rust_checkers = ['rustc']
 
 " Fugitive to status line
 set statusline+=%{fugitive#statusline()}
