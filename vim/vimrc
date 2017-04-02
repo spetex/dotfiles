@@ -28,6 +28,10 @@ set directory=~/.vim/swps "Dir for swp files.
 "Set the X window register for vim clipboard
 set clipboard=unnamedplus
 
+" Set code folding depending on the syntax highlighting
+set foldmethod=syntax
+set foldlevel=20
+
 " Vim Plug Settings
 call plug#begin()
 Plug 'tpope/vim-sensible' "Common ground of all vim users.
@@ -88,6 +92,12 @@ nnoremap tl  :tablast<CR>
 nnoremap tn  :tabnew<CR>
 nnoremap lo  :lopen<CR>
 nnoremap lc  :lclose<CR>
+
+" Search for visually selected text
+vnoremap // y/<C-R>"<CR>"
+
+" Search and replace visually selected text
+vnoremap <C-d> "hy:%s/<C-r>h//gc<left><left><left>
 
 colorscheme monokai "Setup for monokai colors
 
