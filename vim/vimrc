@@ -7,8 +7,10 @@ set laststatus=2 "Always show file status line.
 set encoding=utf-8 "Always use encoding UTF-8.
 
 "Allow mouse in vim
-set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+  set mouse=a
+  set ttymouse=xterm2
+endif
 
 set backupcopy=yes "Do not use swaps and update directly files.
 "This is due to the usage of hot reaload when developing React.
@@ -33,36 +35,48 @@ set foldmethod=syntax
 set foldlevel=20
 
 " Vim Plug Settings
+" --------------------------------------------------------------------
 call plug#begin()
-Plug 'tpope/vim-sensible' "Common ground of all vim users.
-Plug 'tpope/vim-surround' "Change surroundings easily
+Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor.
+Plug 'Valloric/MatchTagAlways' "Highlight matching tag.
+Plug 'Valloric/YouCompleteMe' "Intelisense
+Plug 'Yggdroot/indentLine' "Better & smarter indentation rules.
+Plug 'airblade/vim-gitgutter' "Show changed lines in gutter.
+Plug 'alvan/vim-closetag' "Auto complete closetags.
+Plug 'henrik/vim-indexed-search' "Adds number of results to search.
+Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis.
+Plug 'junegunn/vim-peekaboo'
+Plug 'mhinz/vim-startify' " Startify, super cool
+Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files.
+Plug 'pbrisbin/vim-mkdir' "Create dirs using vim.
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser.
 Plug 'tpope/vim-commentary' "Comment multiple lines at once.
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat' "Enable . for special commands.
-Plug 'airblade/vim-gitgutter' "Show changed lines in gutter.
-Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files.
-Plug 'henrik/vim-indexed-search' "Adds number of results to search.
-Plug 'Yggdroot/indentLine' "Better & smarter indentation rules.
-Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis.
-Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor.
-Plug 'junegunn/vim-peekaboo'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser.
 Plug 'tpope/vim-fugitive' "Helpful git addon.
-Plug 'scrooloose/syntastic' "Linting
-Plug 'Valloric/MatchTagAlways' "Highlight matching tag.
-Plug 'alvan/vim-closetag' "Auto complete closetags.
-Plug 'Valloric/YouCompleteMe' "Intelisense
-Plug 'pbrisbin/vim-mkdir' "Create dirs using vim.
-Plug 'mhinz/vim-startify' " Startify, super cool
+Plug 'tpope/vim-repeat' "Enable . for special commands.
+Plug 'tpope/vim-sensible' "Common ground of all vim users.
+Plug 'tpope/vim-surround' "Change surroundings easily
+Plug 'w0rp/ale' "Asynchronous Linting Engine
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Vim Airline
+" --------------------------------------------------------------------
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim' " Generate airline color settings for tmux
 
 " Languages
+" --------------------------------------------------------------------
 " Rust
 Plug 'rust-lang/rust.vim'
 " JavaScript
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'gavocanov/vim-js-indent'
 Plug 'elzr/vim-json'
+" React (JSX)
+Plug 'mxw/vim-jsx'
+" TypeScript
 Plug 'leafgarland/typescript-vim'
 " CSS & LESS
 Plug 'groenewege/vim-less'
@@ -70,11 +84,9 @@ Plug 'ap/vim-css-color'
 " Others
 Plug 'rdolgushin/gitignore.vim'
 Plug 'evanmiller/nginx-vim-syntax'
+" Markdown
+Plug 'tpope/vim-markdown'
 
-" Vim airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim' " Generate airline color settings for tmux
 call plug#end()
 
 filetype plugin indent on "Enable filetype specific indent scripts
@@ -109,18 +121,10 @@ let g:airline_theme='bubblegum'
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
 
-" Syntastic status lines for eslint
+" Syntastic status lines
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_typescript_checkers = ['tsc']
-let g:syntastic_rust_checkers = ['rustc']
 
 " Fugitive to status line
 set statusline+=%{fugitive#statusline()}
@@ -152,4 +156,3 @@ let g:vim_json_syntax_conceal = 0 "Dont hide JSON syntax.
 let g:HiCursorWords_delay = 100 "Set cursor word highlight to 100ms
 
 map <Space> <Leader>
-
