@@ -83,6 +83,7 @@ eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 pyenv virtualenvwrapper
 
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -99,7 +100,6 @@ pyenv virtualenvwrapper
 bindkey -v
 set -o vi
 
-
 # ZSH aliases
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
@@ -115,7 +115,7 @@ alias npmlg="npm list -depth 0 -g" # Prints out all global installed dependencie
 
 # App Aliases
 alias ff="firefox"
+alias vim="nvim"
+alias vi="nvim"
 
-source ~/.coopix
-source ~/.encounter-navigator
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
