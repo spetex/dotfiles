@@ -77,12 +77,11 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 fi
 
-export PATH="/home/psahula/.pyenv/bin:$PATH"
+export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 pyenv virtualenvwrapper
-
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -100,6 +99,7 @@ pyenv virtualenvwrapper
 bindkey -v
 set -o vi
 
+
 # ZSH aliases
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
@@ -108,6 +108,12 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias gitconfig="vim ~/.gitconfig"
 alias gitignore="vim ~/.gitignore"
 alias reload="source ~/.zshrc"
+
+#Backups
+alias vimrc-update="cd ~/Repos/dotfiles && git pull && cd - && diff ~/Repos/dotfiles/vim/vimrc ~/.vimrc"
+alias vimrc-upgrade="cp ~/Repos/dotfiles/vim/vimrc ~/.vimrc"
+alias zshrc-update="cd ~/Repos/dotfiles && git pull && cd - && diff ~/Repos/dotfiles/zshell/zshrc ~/.zshrc"
+alias zshrc-upgrade="cp ~/Repos/dotfiles/zshell/zshrc ~/.zshrc && reload"
 
 # NPM Aliases
 alias npml="npm list -depth 0" # Prints out all local installed dependencies
