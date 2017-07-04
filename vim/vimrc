@@ -37,29 +37,34 @@ set foldlevel=20
 " Vim Plug Settings
 " --------------------------------------------------------------------
 call plug#begin()
-Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor.
-Plug 'Valloric/MatchTagAlways' "Highlight matching tag.
-Plug 'Yggdroot/indentLine' "Better & smarter indentation rules.
-Plug 'airblade/vim-gitgutter' "Show changed lines in gutter.
-Plug 'alvan/vim-closetag' "Auto complete closetags.
-Plug 'henrik/vim-indexed-search' "Adds number of results to search.
-Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis.
-Plug 'junegunn/vim-peekaboo'
-Plug 'mhinz/vim-startify' " Startify, super cool
-Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files.
-Plug 'pbrisbin/vim-mkdir' "Create dirs using vim.
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser.
-Plug 'tpope/vim-commentary' "Comment multiple lines at once.
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive' "Helpful git addon.
-Plug 'tpope/vim-repeat' "Enable . for special commands.
-Plug 'tpope/vim-sensible' "Common ground of all vim users.
+Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
+Plug 'Valloric/MatchTagAlways' "Highlight matching tag
+Plug 'Yggdroot/indentLine' "Better & smarter indentation rules
+Plug 'airblade/vim-gitgutter' "Show changed lines in gutter
+Plug 'alvan/vim-closetag' "Auto complete closetags
+Plug 'henrik/vim-indexed-search' "Adds number of results to search
+Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis
+Plug 'junegunn/vim-peekaboo' "Shows the content of registers
+Plug 'mhinz/vim-startify' "Custom vim startup page
+Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files
+Plug 'pbrisbin/vim-mkdir' "Create dirs using vim
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser
+Plug 'tpope/vim-commentary' "Comment multiple lines at once
+Plug 'tpope/vim-eunuch' "Vim sugar for UNIX shell commands
+Plug 'tpope/vim-fugitive' "Helpful git addon
+Plug 'tpope/vim-repeat' "Enable . for special commands
+Plug 'tpope/vim-sensible' "Common ground of all vim users
 Plug 'tpope/vim-surround' "Change surroundings easily
-Plug 'w0rp/ale' "Asynchronous Linting Engine
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim' "FuzzyFinder for opening files
 Plug 'vim-scripts/sessionman.vim' "Session Manager
-Plug 'roxma/nvim-completion-manager' "Async Autocompletion
+
+"FuzzyFinder for opening files
+" --------------------------------------------------------------------
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+"Async Autocompletion Manager
+" --------------------------------------------------------------------
+Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/python-support.nvim'
 " for python completions
@@ -78,6 +83,7 @@ Plug 'edkolev/tmuxline.vim' " Generate airline color settings for tmux
 
 " Languages
 " --------------------------------------------------------------------
+Plug 'w0rp/ale' "Asynchronous Linting Engine
 " Rust
 Plug 'rust-lang/rust.vim'
 " JavaScript
@@ -91,7 +97,7 @@ Plug 'leafgarland/typescript-vim'
 " CSS & LESS
 Plug 'groenewege/vim-less'
 Plug 'ap/vim-css-color'
-" Others
+" Configuration Files
 Plug 'rdolgushin/gitignore.vim'
 Plug 'evanmiller/nginx-vim-syntax'
 " Markdown
@@ -99,13 +105,12 @@ Plug 'tpope/vim-markdown'
 
 call plug#end()
 
-filetype plugin indent on "Enable filetype specific indent scripts
-
+"Enable filetype specific indent scripts
+filetype plugin indent on
+"Enter newlines without entering insert mode
 nmap <CR> o<Esc>k
-" Enter newlines without entering insert mode
-" Toggle file menu
+"Toggle file menu
 map <C-n> :NERDTreeToggle<CR>
-
 " Tab Navigation
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabprev<CR>
@@ -114,16 +119,16 @@ nnoremap tl  :tablast<CR>
 nnoremap tn  :tabnew<CR>
 nnoremap lo  :lopen<CR>
 nnoremap lc  :lclose<CR>
-
 " Search for visually selected text
 vnoremap // y/<C-R>"<CR>"
-
 " Search and replace visually selected text
 vnoremap <C-d> "hy:%s/<C-r>h//gc<left><left><left>
 
-colorscheme monokai "Setup for monokai colors
+"Setup for monokai colors
+colorscheme monokai
 
-set cursorline "Highlight current line
+"Highlight current line
+set cursorline
 
 " Airline theme dark
 let g:airline_theme='bubblegum'
@@ -131,27 +136,10 @@ let g:airline_theme='bubblegum'
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
 
-" Syntastic status lines
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:tsuquyomi_disable_quickfix = 1
-
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_rust_checkers = ['rustc']
-let g:syntastic_typescript_checkers = ['tsc']
-let g:syntastic_typescript_tsc_fname = ''
-
 " Fugitive to status line
 set statusline+=%{fugitive#statusline()}
 
-" Aitline status line
+" Airline status line
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -173,8 +161,10 @@ autocmd BufNewFile,BufRead .babelrc set filetype=javascript
 autocmd BufNewFile,BufRead .eslintrc,.reduxrc set filetype=json
 autocmd BufNewFile,BufRead gitconfig set filetype=gitconfig
 
-let g:vim_json_syntax_conceal = 0 "Dont hide JSON syntax.
+"Dont hide JSON syntax.
+let g:vim_json_syntax_conceal = 0
 
-let g:HiCursorWords_delay = 100 "Set cursor word highlight to 100ms
+"Set cursor word highlight to 100ms
+let g:HiCursorWords_delay = 100
 
 map <Space> <Leader>
