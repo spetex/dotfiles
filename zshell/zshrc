@@ -121,6 +121,7 @@ alias npmlg="npm list -depth 0 -g" # Prints out all global installed dependencie
 
 # App Aliases
 alias ff="firefox"
+alias mux="tmuxinator"
 alias vim="nvim"
 alias vi="nvim"
 
