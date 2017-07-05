@@ -1,0 +1,15 @@
+Common:
+tmux
+neovim
+git
+pyenv
+pyenv-virtualenvwrapper
+ruby # install tmuxinator
+tmuxinator # gem install tmuxinator
+rustc
+cargo
+fzf
+zshell
+
+Mac:
+reattach-to-user-namespace # Clipboard in tmux
