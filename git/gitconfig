@@ -2,7 +2,7 @@
 	name = Petr Sahula
 	email = mail@spetex.cz
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 [color]
     status=auto
