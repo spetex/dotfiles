@@ -99,7 +99,6 @@ Plug 'groenewege/vim-less'
 Plug 'ap/vim-css-color'
 " Configuration Files
 Plug 'rdolgushin/gitignore.vim'
-Plug 'evanmiller/nginx-vim-syntax'
 " Markdown
 Plug 'tpope/vim-markdown'
 

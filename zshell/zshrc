@@ -77,7 +77,7 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 fi
 
-export PATH="~/.pyenv/bin:$PATH"
+export PATH="/Users/petrsahula/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
