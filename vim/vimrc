@@ -1,16 +1,11 @@
 set nocompatible "This may not be neccessary, it is by default on.
+
 set title "Show currently edited file in the title of term window.
 set number "Show line numbers.
 set numberwidth=4 "Spacing always given to these numbers.
 set history=1000 "Default is 20, I'd rather set this to ∞
 set laststatus=2 "Always show file status line.
 set encoding=utf-8 "Always use encoding UTF-8.
-
-"Allow mouse in vim
-if !has('nvim')
-  set mouse=a
-  set ttymouse=xterm2
-endif
 
 set backupcopy=yes "Do not use swaps and update directly files.
 "This is due to the usage of hot reaload when developing React.
@@ -27,7 +22,7 @@ set undofile "Maintain undo history between sessions.
 set undodir=~/.vim/undodir "Dir for undo history.
 set directory=~/.vim/swps "Dir for swp files.
 
-"Set the X window register for vim clipboard
+"Set the OS register for vim clipboard
 set clipboard=unnamedplus
 
 " Set code folding depending on the syntax highlighting
@@ -118,6 +113,11 @@ nnoremap tl  :tablast<CR>
 nnoremap tn  :tabnew<CR>
 nnoremap lo  :lopen<CR>
 nnoremap lc  :lclose<CR>
+
+" FZF
+nnoremap fzf :FZF<CR>
+nnoremap ; :Buffers<CR>
+
 " Search for visually selected text
 vnoremap // y/<C-R>"<CR>"
 " Search and replace visually selected text
