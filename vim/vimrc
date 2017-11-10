@@ -51,6 +51,8 @@ Plug 'tpope/vim-repeat' "Enable . for special commands
 Plug 'tpope/vim-sensible' "Common ground of all vim users
 Plug 'tpope/vim-surround' "Change surroundings easily
 Plug 'vim-scripts/sessionman.vim' "Session Manager
+Plug 'terryma/vim-multiple-cursors' "Multicursor support
+
 
 "FuzzyFinder for opening files
 " --------------------------------------------------------------------
@@ -117,6 +119,7 @@ nnoremap lc  :lclose<CR>
 " FZF
 nnoremap fzf :FZF<CR>
 nnoremap ; :Buffers<CR>
+nnoremap , :Ag<CR>
 
 " Search for visually selected text
 vnoremap // y/<C-R>"<CR>"
