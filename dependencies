@@ -1,15 +1,11 @@
 Common:
-tmux
-neovim
+antibody
+cmake
+fzf
 git
+neovim
 pyenv
 pyenv-virtualenvwrapper
-ruby # install tmuxinator
-tmuxinator # gem install tmuxinator
-rustc
-cargo
-fzf
+rust
+tmux
 zshell
-
-Mac:
-reattach-to-user-namespace # Clipboard in tmux
