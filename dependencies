@@ -1,11 +1,14 @@
-Common:
-antibody
+ag
 cmake
 fzf
 git
+homebrew
 neovim
+psutil (pip)
 pyenv
 pyenv-virtualenvwrapper
 rust
+screenfetch
 tmux
+zr (cargo)
 zshell
