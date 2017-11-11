@@ -85,10 +85,11 @@ nnoremap tn  :tabnew<CR>
 nnoremap fzf :FZF<CR>
 nnoremap ; :Buffers<CR>
 nnoremap , :Ag<CR>
-" Search for visually selected text
-vnoremap // y/<C-R>"<CR>"
-" Search and replace visually selected text
-vnoremap <C-d> "hy:%s/<C-r>h//gc<left><left><left>
+" Dissable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " ----------------------------------------------------------------------------
 " PLUGIN SPECIFIC SETTINGS
