@@ -1,2 +1,5 @@
 *.swp
+.env
+.out
+.nvmrc
 .python-version
