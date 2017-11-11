@@ -2,25 +2,25 @@
 " GENERIC SETTINGS
 " ----------------------------------------------------------------------------
 
-set number "Show line numbers.
-set numberwidth=4 "Spacing always given to these numbers.
+colorscheme monokai "Setup for monokai colors
+filetype plugin indent on "Enable filetype specific indent scripts
+set backupcopy=yes "Do not use swaps and update directly files. (hot reload)
+set clipboard=unnamedplus "Set the OS register for vim clipboard
+set cursorline "Highlight current line
+set directory=~/.vim/swps "Dir for swp files.
+set encoding=utf-8 "Always use encoding UTF-8.
+set expandtab "Use spaces instead tabs
+set foldlevel=20
+set foldmethod=syntax
 set history=1000 "Default is 20, I'd rather set this to ∞
 set laststatus=2 "Always show file status line.
-set encoding=utf-8 "Always use encoding UTF-8.
-set cursorline "Highlight current line
-set backupcopy=yes "Do not use swaps and update directly files. (hot reload)
-set expandtab "Use spaces instead tabs
-set tabstop=2
-set softtabstop=2
+set number "Show line numbers.
+set numberwidth=4 "Spacing always given to these numbers.
 set shiftwidth=2
-set undofile "Maintain undo history between sessions.
+set softtabstop=2
+set tabstop=2
 set undodir=~/.vim/undodir "Dir for undo history.
-set directory=~/.vim/swps "Dir for swp files.
-set clipboard=unnamedplus "Set the OS register for vim clipboard
-set foldmethod=syntax
-set foldlevel=20
-filetype plugin indent on "Enable filetype specific indent scripts
-colorscheme monokai "Setup for monokai colors
+set undofile "Maintain undo history between sessions.
 
 " ----------------------------------------------------------------------------
 " PLUGINS
