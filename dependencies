@@ -11,5 +11,6 @@ pyenv-virtualenvwrapper
 rust
 screenfetch
 tmux
+tpm (ztmux-plugins/tpmshell)
 zr (cargo)
 zshell
