@@ -27,38 +27,29 @@ set undofile "Maintain undo history between sessions.
 " ----------------------------------------------------------------------------
 
 call plug#begin()
-Plug 'christoomey/vim-tmux-navigator' "Navigate splits and panes with one hotkey
 Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
 Plug 'Valloric/MatchTagAlways' "Highlight matching tag
 Plug 'Yggdroot/indentLine' "Better & smarter indentation rules
 Plug 'airblade/vim-gitgutter' "Show changed lines in gutter
 Plug 'alvan/vim-closetag' "Auto complete closetags
-Plug 'ap/vim-css-color'
-Plug 'elzr/vim-json'
-Plug 'gavocanov/vim-js-indent'
-Plug 'groenewege/vim-less'
+Plug 'christoomey/vim-tmux-navigator' "Navigate splits and panes with one hotkey
 Plug 'henrik/vim-indexed-search' "Adds number of results to search
 Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo' "Shows the content of registers
-Plug 'leafgarland/typescript-vim'
 Plug 'mhinz/vim-startify' "Custom vim startup page
-Plug 'mxw/vim-jsx'
 Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files
-Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir' "Create dirs using vim
-Plug 'rdolgushin/gitignore.vim'
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/python-support.nvim'
-Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser
+Plug 'sheerun/vim-polyglot' "Syntax for all languages
 Plug 'terryma/vim-multiple-cursors' "Multicursor support
 Plug 'tpope/vim-commentary' "Comment multiple lines at once
 Plug 'tpope/vim-eunuch' "Vim sugar for UNIX shell commands
 Plug 'tpope/vim-fugitive' "Helpful git addon
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat' "Enable . for special commands
 Plug 'tpope/vim-sensible' "Common ground of all vim users
 Plug 'tpope/vim-surround' "Change surroundings easily
@@ -67,6 +58,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/sessionman.vim' "Session Manager
 Plug 'w0rp/ale' "Asynchronous Linting Engine
 " Plug 'edkolev/tmuxline.vim' " Generate airline color settings for tmux
+" Plug 'gavocanov/vim-js-indent'
 call plug#end()
 
 " ----------------------------------------------------------------------------
