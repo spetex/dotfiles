@@ -11,7 +11,7 @@ set directory=~/.vim/swps "Dir for swp files.
 set encoding=utf-8 "Always use encoding UTF-8.
 set expandtab "Use spaces instead tabs
 set foldlevel=20
-set foldmethod=syntax
+set foldmethod=indent
 set history=1000 "Default is 20, I'd rather set this to ∞
 set laststatus=2 "Always show file status line.
 set number "Show line numbers.
@@ -21,6 +21,7 @@ set softtabstop=2
 set tabstop=2
 set undodir=~/.vim/undodir "Dir for undo history.
 set undofile "Maintain undo history between sessions.
+set noshowmode "Do not show indicator for insert, use lightline instead
 
 " ----------------------------------------------------------------------------
 " PLUGINS
@@ -29,11 +30,13 @@ set undofile "Maintain undo history between sessions.
 call plug#begin()
 Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
 Plug 'Valloric/MatchTagAlways' "Highlight matching tag
+Plug 'Valloric/YouCompleteMe' "Completion Manager
 Plug 'Yggdroot/indentLine' "Better & smarter indentation rules
 Plug 'airblade/vim-gitgutter' "Show changed lines in gutter
 Plug 'alvan/vim-closetag' "Auto complete closetags
 Plug 'christoomey/vim-tmux-navigator' "Navigate splits and panes with one hotkey
 Plug 'henrik/vim-indexed-search' "Adds number of results to search
+Plug 'itchyny/lightline.vim' "Theme
 Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -41,10 +44,6 @@ Plug 'junegunn/vim-peekaboo' "Shows the content of registers
 Plug 'mhinz/vim-startify' "Custom vim startup page
 Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files
 Plug 'pbrisbin/vim-mkdir' "Create dirs using vim
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/python-support.nvim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File browser
 Plug 'sheerun/vim-polyglot' "Syntax for all languages
 Plug 'terryma/vim-multiple-cursors' "Multicursor support
 Plug 'tpope/vim-commentary' "Comment multiple lines at once
@@ -53,12 +52,7 @@ Plug 'tpope/vim-fugitive' "Helpful git addon
 Plug 'tpope/vim-repeat' "Enable . for special commands
 Plug 'tpope/vim-sensible' "Common ground of all vim users
 Plug 'tpope/vim-surround' "Change surroundings easily
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/sessionman.vim' "Session Manager
 Plug 'w0rp/ale' "Asynchronous Linting Engine
-" Plug 'edkolev/tmuxline.vim' " Generate airline color settings for tmux
-" Plug 'gavocanov/vim-js-indent'
 call plug#end()
 
 " ----------------------------------------------------------------------------
@@ -87,18 +81,10 @@ noremap <Right> <Nop>
 " PLUGIN SPECIFIC SETTINGS
 " ----------------------------------------------------------------------------
 
-" for Better Python completions (nvim)
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
 " Fugitive to status line
 set statusline+=%{fugitive#statusline()}
-" Airline status line * theme
-let g:airline_theme='bubblegum'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 " Enable tag matching in these files
 let g:mta_use_matchparen_group = 1
 let g:mta_filetypes = {

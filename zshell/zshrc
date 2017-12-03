@@ -25,6 +25,8 @@ fi
     urbainvaes/fzf-marks \
 }
 source ~/.zr/init.zsh
+
+# Load zsh theme
 source ~/.theme.zsh
 
 # Keybindings for history substring search
@@ -46,8 +48,7 @@ alias npml="npm list -depth 0" # Prints out all local installed dependencies
 alias npmlg="npm list -depth 0 -g" # Prints out all global installed dependencies
 
 # App Aliases
-alias vim="nvim"
-alias vi="nvim"
+alias vi="vim"
 
 alias ls="ls -G"
 
