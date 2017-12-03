@@ -14,6 +14,7 @@ fi
 # Generate new ~/.zr/init.zsh whenever ~/.zshrc is modified
 [[ ~/.zshrc -nt ~/.zr/init.zsh ]] && {
   zr load \
+    Tarrasch/zsh-autoenv \
     ael-code/zsh-colored-man-pages \
     lukechilds/zsh-nvm \
     paulmelnikow/zsh-startup-timer \
@@ -49,6 +50,7 @@ alias npmlg="npm list -depth 0 -g" # Prints out all global installed dependencie
 
 # App Aliases
 alias vi="vim"
+alias vim="nvim"
 
 alias ls="ls -G"
 
