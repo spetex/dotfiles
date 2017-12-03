@@ -30,7 +30,6 @@ set noshowmode "Do not show indicator for insert, use lightline instead
 call plug#begin()
 Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
 Plug 'Valloric/MatchTagAlways' "Highlight matching tag
-Plug 'Valloric/YouCompleteMe' "Completion Manager
 Plug 'Yggdroot/indentLine' "Better & smarter indentation rules
 Plug 'airblade/vim-gitgutter' "Show changed lines in gutter
 Plug 'alvan/vim-closetag' "Auto complete closetags
@@ -44,6 +43,7 @@ Plug 'junegunn/vim-peekaboo' "Shows the content of registers
 Plug 'mhinz/vim-startify' "Custom vim startup page
 Plug 'ntpeters/vim-better-whitespace' "Highlights whitespace in files
 Plug 'pbrisbin/vim-mkdir' "Create dirs using vim
+Plug 'roxma/nvim-completion-manager' "Completion Manager
 Plug 'sheerun/vim-polyglot' "Syntax for all languages
 Plug 'terryma/vim-multiple-cursors' "Multicursor support
 Plug 'tpope/vim-commentary' "Comment multiple lines at once
