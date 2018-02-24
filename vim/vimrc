@@ -10,8 +10,12 @@ set cursorline "Highlight current line
 set directory=~/.vim/swps "Dir for swp files.
 set encoding=utf-8 "Always use encoding UTF-8.
 set expandtab "Use spaces instead tabs
-set foldlevel=20
+
 set foldmethod=indent
+set foldnestmax=2 "Maximum nested folds
+set nofoldenable "Do not fold files when opening
+set foldlevel=2 "Folding level
+
 set history=1000 "Default is 20, I'd rather set this to ∞
 set laststatus=2 "Always show file status line.
 set number "Show line numbers.
@@ -22,6 +26,7 @@ set tabstop=2
 set undodir=~/.vim/undodir "Dir for undo history.
 set undofile "Maintain undo history between sessions.
 set noshowmode "Do not show indicator for insert, use lightline instead
+command! Wq wq "https://sanctum.geek.nz/arabesque/vim-koans/
 
 " ----------------------------------------------------------------------------
 " PLUGINS
