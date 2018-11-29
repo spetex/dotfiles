@@ -17,9 +17,5 @@ precmd () {
 
   RPROMPT="${git_branch}"
 
-  if [ "$ZSH_CLEAN_PATH_STYLE" = "1" ]; then
-    PROMPT="%F{yellow}%c%{$reset_color%} "
-  else
-    PROMPT="%F{yellow}%~%{$reset_color%} "
-  fi
+  PROMPT="%F{yellow}%c%{$reset_color%} "
 }
