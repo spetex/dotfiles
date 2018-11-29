@@ -1,6 +1,6 @@
 [user]
 	name = Petr Sahula
-	email = mail@spetex.cz
+	email = spetex@icloud.com
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
