@@ -2,6 +2,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.pyenv/bin
 
+# Wine environment
+export WINEARCH=win32 WINEPREFIX=~/Wine
+
 # Common Configuration
 export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
