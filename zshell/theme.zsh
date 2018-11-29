@@ -18,4 +18,7 @@ precmd () {
   RPROMPT="${git_branch}"
 
   PROMPT="%F{yellow}%c%{$reset_color%} "
+
+  # Add virtualenv name into the prompt
+  PROMPT="`basename \"$VIRTUAL_ENV\"` $PROMPT"
 }
