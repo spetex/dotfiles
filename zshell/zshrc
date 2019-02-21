@@ -56,6 +56,7 @@ alias vi="vim"
 alias vim="nvim"
 
 alias ls="ls -G"
+alias ll="ls -l"
 
 # FZF init
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
