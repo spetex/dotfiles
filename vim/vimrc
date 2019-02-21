@@ -59,6 +59,12 @@ Plug 'tpope/vim-repeat' "Enable . for special commands
 Plug 'tpope/vim-sensible' "Common ground of all vim users
 Plug 'tpope/vim-surround' "Change surroundings easily
 Plug 'w0rp/ale' "Asynchronous Linting Engine
+Plug 'reasonml-editor/vim-reason-plus' " ReasonML syntax
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ } "ReasonML Language Client
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " -----------------------------------------------------------------------------
@@ -81,9 +87,20 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" LanguageServer keypms
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
+nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
+
 " -----------------------------------------------------------------------------
 " PLUGIN SPECIFIC SETTINGS
 " -----------------------------------------------------------------------------
+"  Configure path to Reason language server
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['~/.reason/reason-language-server.exe'],
+    \ }
+" enable autocomplete
+let g:deoplete#enable_at_startup = 1
 
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
