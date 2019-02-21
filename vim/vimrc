@@ -67,8 +67,6 @@ call plug#end()
 
 "Enter newlines without entering insert mode
 nmap <CR> o<Esc>k
-"Toggle file menu
-map <C-n> :NERDTreeToggle<CR>
 " Tab Navigation
 nnoremap tj  :tabprev<CR>
 nnoremap tk  :tabnext<CR>
