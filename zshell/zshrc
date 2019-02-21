@@ -15,7 +15,7 @@ fi
 
 # ZR - ZSH Plugin Manager written in rust
 # Generate new ~/.zr/init.zsh whenever ~/.zshrc is modified
-[[ ~/.zshrc -nt ~/.zr/init.zsh ]] && {
+if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
   zr load \
     Tarrasch/zsh-autoenv \
     ael-code/zsh-colored-man-pages \
@@ -26,8 +26,8 @@ fi
     zsh-users/zsh-completions \
     zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-history-substring-search \
-    urbainvaes/fzf-marks \
-}
+    urbainvaes/fzf-marks
+fi
 source ~/.zr/init.zsh
 
 # Load zsh theme
