@@ -1,0 +1,13 @@
+Rxvt.title: Terminal (urxvt)
+Rxvt.urlLauncher: firefox
+
+Rxvt.foreground: white
+Rxvt.background: [70]black
+Rxvt.depth: 32
+Rxvt.cursorBlink: true
+
+
+Rxvt.scrollBar: false
+Rxvt.internalBorder: 15
+
+Rxvt.font: xft:FiraCodeMedium:pixelsize=14
