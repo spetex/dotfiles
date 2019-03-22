@@ -61,15 +61,8 @@ Plug 'mhinz/vim-startify' "Custom vim startup page
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Language Server and Completion
-Plug 'roxma/nvim-yarp' "Remote Plugin
-Plug 'ncm2/ncm2' "Completion manager
-Plug 'ncm2/ncm2-bufword' "Use words from all buffers
-Plug 'ncm2/ncm2-path' "Lookup path for completion
-Plug 'ncm2/ncm2-jedi' "Python Completion
-Plug 'ncm2/ncm2-tern', {'do': 'npm install'} "JavaScript Completion
-Plug 'ncm2/ncm2-racer' "Rust Completion
-Plug 'ncm2/ncm2-cssomni' "CSS Completion
+" Autocompletion
+Plug 'Valloric/YouCompleteMe'
 
 " Language Syntax Support
 Plug 'sheerun/vim-polyglot' "Syntax for all languages
@@ -108,10 +101,6 @@ nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
 " -----------------------------------------------------------------------------
 " PLUGIN SPECIFIC SETTINGS
 " -----------------------------------------------------------------------------
-
-"Configuration for ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
 
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
