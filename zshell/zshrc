@@ -22,15 +22,13 @@ fi
 # Generate new ~/.zr/init.zsh whenever ~/.zshrc is modified
 if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
   zr load \
-    Tarrasch/zsh-autoenv \
     lukechilds/zsh-nvm \
     paulmelnikow/zsh-startup-timer \
     willghatch/zsh-saneopt \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
     zsh-users/zsh-syntax-highlighting \
-    zsh-users/zsh-history-substring-search \
-    urbainvaes/fzf-marks
+    zsh-users/zsh-history-substring-search
 fi
 source ~/.zr/init.zsh
 
