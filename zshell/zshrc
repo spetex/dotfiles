@@ -2,12 +2,17 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.pyenv/bin
 
-# Wine environment
-export WINEARCH=win32 WINEPREFIX=~/Wine
+if test -z "${XDG_RUNTIME_DIR}"; then
+	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+	if ! test -d "${XDG_RUNTIME_DIR}"; then
+		mkdir "${XDG_RUNTIME_DIR}"
+		chmod 0700 "${XDG_RUNTIME_DIR}"
+	fi
+fi
 
 # Common Configuration
 export LANG=en_US.UTF-8
-export ARCHFLAGS="-arch x86_64"
+
 export EDITOR='nvim'
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -18,7 +23,6 @@ fi
 if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
   zr load \
     Tarrasch/zsh-autoenv \
-    ael-code/zsh-colored-man-pages \
     lukechilds/zsh-nvm \
     paulmelnikow/zsh-startup-timer \
     willghatch/zsh-saneopt \
@@ -57,6 +61,9 @@ alias vim="nvim"
 
 alias ls="ls -G"
 alias ll="ls -l"
+
+#gentoo aliases
+alias emerge="sudo emerge --ask"
 
 # FZF init
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
