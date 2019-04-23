@@ -56,6 +56,7 @@ Plug 'christoomey/vim-tmux-navigator' "Navigate splits & panes with one hotkey
 " Eye Candy
 Plug 'itchyny/lightline.vim' "Theme
 Plug 'mhinz/vim-startify' "Custom vim startup page
+Plug 'ap/vim-css-color' "Show color highlights
 
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
