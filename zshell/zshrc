@@ -52,10 +52,6 @@ eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 pyenv virtualenvwrapper
 
-# NPM Aliases
-alias npml="npm list -depth 0" # Prints out all local installed dependencies
-alias npmlg="npm list -depth 0 -g" # Prints out all global installed dependencies
-
 # App Aliases
 alias vi="vim"
 alias vim="nvim"
