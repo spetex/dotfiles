@@ -1,6 +1,8 @@
+# Add more language specific binary paths
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.pyenv/bin
+export PATH=$PATH:HOME/.bin
 
 if test -z "${XDG_RUNTIME_DIR}"; then
 	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
