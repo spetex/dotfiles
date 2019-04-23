@@ -177,9 +177,11 @@ exec swayidle -w \
     bindsym $mod+a focus parent
 
     # remove window decorators
-    for_window [class="^.*"] border pixel 4
+    for_window [class="^.*"] border pixel 0
 
     # add gaps
+    gaps inner 10
+    gaps outer 0
 
 
     # e6db74
@@ -236,7 +238,7 @@ bar {
     colors {
         statusline #f8f8f2
         background #272822
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        inactive_workspace #323232 #323232 #5c5c5c
     }
     font FiraCode Bold 10
 }
