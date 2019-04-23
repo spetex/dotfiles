@@ -70,6 +70,7 @@ Plug 'Valloric/YouCompleteMe'
 " Language Syntax Support
 Plug 'sheerun/vim-polyglot' "Syntax for all languages
 Plug 'reasonml-editor/vim-reason-plus' " ReasonML syntax
+Plug 'andreshazard/vim-freemarker' " Freemarker Syntax
 
 " Linting
 Plug 'w0rp/ale' "Asynchronous Linting Engine
@@ -117,6 +118,7 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \ 'jinja' : 1,
+    \ 'ftl' : 1,
     \}
 "Closing hmtl tags
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
