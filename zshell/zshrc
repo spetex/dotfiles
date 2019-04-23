@@ -30,6 +30,7 @@ if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
     willghatch/zsh-saneopt \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
+    ninrod/pass-zsh-completion \
     zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-history-substring-search
 fi
