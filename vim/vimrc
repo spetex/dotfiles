@@ -52,6 +52,8 @@ Plug 'tpope/vim-repeat' "Enable . for special commands
 Plug 'tpope/vim-sensible' "Common ground of all vim users
 Plug 'tpope/vim-surround' "Change surroundings easily
 Plug 'christoomey/vim-tmux-navigator' "Navigate splits & panes with one hotkey
+Plug 'embear/vim-localvimrc' " Use local .vimrc files for specific projects
+
 
 " Eye Candy
 Plug 'itchyny/lightline.vim' "Theme
@@ -126,3 +128,5 @@ autocmd BufNewFile,BufRead gitconfig set filetype=gitconfig
 let g:vim_json_syntax_conceal = 0
 "Set cursor word highlight to 100ms
 let g:HiCursorWords_delay = 100
+" Load local .vimrc files - .lvimrc without asking
+let g:localvimrc_ask = 0
