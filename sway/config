@@ -127,33 +127,35 @@ exec swayidle -w \
     set $vim "2: "
     set $term1 "3: "
     set $term2 "4: "
-    set $blank1 "5: "
-    set $blank2 "6: "
-    set $mail "7: "
-    set $telegram "8: "
+    set $mail "5: "
+    set $notes "6: "
+    set $blank2 "7: "
+    set $blank3 "8: "
+    set $blank4 "9: "
+    set $blank5 "10: "
 
     # switch to workspace
     bindsym $mod+1 workspace $firefox
     bindsym $mod+2 workspace $vim
     bindsym $mod+3 workspace $term1
     bindsym $mod+4 workspace $term2
-    bindsym $mod+5 workspace $blank1
-    bindsym $mod+6 workspace $blank2
-    bindsym $mod+7 workspace $mail
-    bindsym $mod+8 workspace $telegram
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+5 workspace $mail
+    bindsym $mod+6 workspace $notes
+    bindsym $mod+7 workspace $blank2
+    bindsym $mod+8 workspace $blank3
+    bindsym $mod+9 workspace $blank4
+    bindsym $mod+0 workspace $blank5
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace $firefox
     bindsym $mod+Shift+2 move container to workspace $vim
     bindsym $mod+Shift+3 move container to workspace $term1
     bindsym $mod+Shift+4 move container to workspace $term2
-    bindsym $mod+Shift+5 move container to workspace $blank1
-    bindsym $mod+Shift+6 move container to workspace $blank2
-    bindsym $mod+Shift+7 move container to workspace $mail
-    bindsym $mod+Shift+8 move container to workspace $telegram
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+5 move container to workspace $mail
+    bindsym $mod+Shift+6 move container to workspace $notes
+    bindsym $mod+Shift+7 move container to workspace $blank2
+    bindsym $mod+Shift+8 move container to workspace $blank3
+    bindsym $mod+Shift+9 move container to workspace $blank4
+    bindsym $mod+Shift+0 move container to workspace $blank5
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
