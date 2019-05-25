@@ -85,6 +85,12 @@ exec swayidle -w \
     # lock
     bindsym $mod+Shift+z exec swaylock -i ~/.sway/wall-lock.png
 
+    # sound
+    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 5%+
+    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 5%-
+    bindsym XF86AudioMute exec amixer -Dpulse set Master toggle
+    bindsym $mod+X exec cmus-remote --pause
+
     # screenshot
     bindsym $mod+p exec grim $(date +'%Y-%m-%d-%H%M%S_grim.png')
     bindsym $mod+Shift+p exec grim -g "$(slurp)" $(date +'%Y-%m-%d-%H%M%S_grim.png')
