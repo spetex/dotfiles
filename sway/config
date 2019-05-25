@@ -256,5 +256,6 @@ bar {
 #
 
 for_window [title="^Mozilla Firefox$"] move container to workspace $firefox
+for_window [title="^Mozilla Thunderbird$"] move container to workspace $mail
 
 include /etc/sway/config.d/*
