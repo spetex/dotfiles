@@ -25,15 +25,15 @@ GetBatteryStatus() {
       echo ""
       return
     fi
-    if [[ $percent_value = "45" ]]; then
+    if [[ $percent_value -gt "45" ]]; then
       echo ""
       return
     fi
-    if [[ $percent_value = "15" ]]; then
+    if [[ $percent_value -gt "15" ]]; then
       echo ""
       return
     fi
-    if [[ $percent_value -gt "0" ]]; then
+    if [[ $percent_value -lt "15" ]]; then
       echo ""
       return
     fi
