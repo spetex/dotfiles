@@ -71,12 +71,12 @@ battery1="$(GetBatteryStatus 'BAT1') $(GetBatteryPercentage 'BAT1')"
 uptime=" $(uptime | cut -d ',' -f1  | cut -d ' ' -f4,5)"
 date_formatted="$(date "+%a %d %b %H:%M")"
 
-audio_status=$(amixer -c PCH -M get Master |\
-awk '/Mono:+/ {print $6=="[off]" ?\
+audio_status=$(amixer -Dpulse get Master |\
+awk '/Right:+/ {print $6=="[off]" ?\
 " ": \
 ""}' |\
 tr -d [])
-playback=( $(amixer -c PCH get PCM playback | sed -n '/.*\[\([0-9]*\)%].*/s//\1/p') )
+playback=( $(amixer -Dpulse get Master | grep 'Right' | sed -n '/.*\[\([0-9]*\)%].*/s//\1/p') )
 audio_volume="${playback}%"
 
 kernel=" $(uname -r | cut -d '-' -f1)"
