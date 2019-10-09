@@ -2,7 +2,13 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.pyenv/bin
-export PATH=$PATH:HOME/.bin
+export PATH=$PATH:$HOME/.bin
+export ZSH=$HOME/.zr/plugins/robbyrussell/oh-my-zsh
+
+# Oh my zsh
+ZSH_THEME="robbyrussell"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
 # Runtime dir for XWayland
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -20,23 +26,30 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 fi
 
+# Enable shared history
+setopt inc_append_history
+setopt share_history
+
 # ZR - ZSH Plugin Manager written in rust
 # Generate new ~/.zr/init.zsh whenever ~/.zshrc is modified
 if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
   zr load \
     lukechilds/zsh-nvm \
+    ninrod/pass-zsh-completion \
     paulmelnikow/zsh-startup-timer \
+    robbyrussell/oh-my-zsh \
+    urbainvaes/fzf-marks \
     willghatch/zsh-saneopt \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
-    ninrod/pass-zsh-completion \
-    zsh-users/zsh-syntax-highlighting \
-    zsh-users/zsh-history-substring-search
+    zsh-users/zsh-history-substring-search \
+    zsh-users/zsh-syntax-highlighting
+
 fi
 source ~/.zr/init.zsh
 
 # Load zsh theme
-source ~/.theme.zsh
+# source ~/.theme.zsh
 
 # Keybindings for history substring search
 bindkey '^[[A' history-substring-search-up
@@ -46,24 +59,27 @@ bindkey '^[[B' history-substring-search-down
 bindkey -v
 set -o vi
 
+alias ls="ls --color"
+alias vim="nvim"
+alias vi="nvim"
+
 # PyEnv Configuration
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 pyenv virtualenvwrapper
 
-# App Aliases
-alias vi="vim"
-alias vim="nvim"
-
-alias ls="ls --color"
-
-# FZF init
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/spetex/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/spetex/.google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/spetex/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/spetex/.google-cloud-sdk/completion.zsh.inc'; fi
+
+# Wayland specific config
+export SDL_VIDEODRIVER=wayland
+
+# FZF config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
