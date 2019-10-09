@@ -1,7 +1,7 @@
 " -----------------------------------------------------------------------------
 " GENERIC SETTINGS
 " -----------------------------------------------------------------------------
-colorscheme monokai "Setup for monokai colors
+colorscheme monokai
 filetype plugin indent on "Enable filetype specific indent scripts
 set backupcopy=yes "Do not use swaps and update directly files. (hot reload)
 set clipboard=unnamedplus "Set the OS register for vim clipboard
@@ -9,11 +9,12 @@ set cursorline "Highlight current line
 set directory=~/.vim/swps "Dir for swp files.
 set encoding=utf-8 "Always use encoding UTF-8.
 set expandtab "Use spaces instead tabs
+set mouse=a "Enable mouse scrolling
 
-set foldmethod=indent
-set foldnestmax=2 "Maximum nested folds
-set nofoldenable "Do not fold files when opening
-set foldlevel=2 "Folding level
+set foldmethod=manual
+" set foldnestmax=2 "Maximum nested folds
+" set nofoldenable "Do not fold files when opening
+" set foldlevel=2 "Folding level
 let &colorcolumn="80,".join(range(100,999),",") "Color max length breakpoints
 
 set history=1000 "Default is 20, I'd rather set this to ∞
@@ -32,50 +33,52 @@ command! Wq wq "https://sanctum.geek.nz/arabesque/vim-koans/
 " PLUGINS
 " -----------------------------------------------------------------------------
 
-call plug#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 " QOL Plugins
-Plug 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
-Plug 'Valloric/MatchTagAlways' "Highlight matching tag
-Plug 'ntpeters/vim-better-whitespace' "Highlight whitespace in files
-Plug 'henrik/vim-indexed-search' "Adds number of results to search
-Plug 'Yggdroot/indentLine' "Better & smarter indentation rules
-Plug 'airblade/vim-gitgutter' "Show changed lines in gutter
-Plug 'alvan/vim-closetag' "Auto complete closetags
-Plug 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis
-Plug 'junegunn/vim-peekaboo' "Shows the content of registers
-Plug 'terryma/vim-multiple-cursors' "Multicursor support
-Plug 'tpope/vim-commentary' "Comment multiple lines at once
-Plug 'tpope/vim-eunuch' "Vim sugar for UNIX shell commands
-Plug 'tpope/vim-fugitive' "Helpful git addon
-Plug 'tpope/vim-repeat' "Enable . for special commands
-Plug 'tpope/vim-sensible' "Common ground of all vim users
-Plug 'tpope/vim-surround' "Change surroundings easily
-Plug 'christoomey/vim-tmux-navigator' "Navigate splits & panes with one hotkey
-Plug 'embear/vim-localvimrc' " Use local .vimrc files for specific projects
+Plugin 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
+Plugin 'Valloric/MatchTagAlways' "Highlight matching tag
+Plugin 'ntpeters/vim-better-whitespace' "Highlight whitespace in files
+Plugin 'henrik/vim-indexed-search' "Adds number of results to search
+Plugin 'Yggdroot/indentLine' "Better & smarter indentation rules
+Plugin 'airblade/vim-gitgutter' "Show changed lines in gutter
+Plugin 'alvan/vim-closetag' "Auto complete closetags
+Plugin 'jiangmiao/auto-pairs' "Automatticaly add a paired hyphen/parenthesis
+Plugin 'junegunn/vim-peekaboo' "Shows the content of registers
+Plugin 'terryma/vim-multiple-cursors' "Multicursor support
+Plugin 'tpope/vim-commentary' "Comment multiple lines at once
+Plugin 'tpope/vim-eunuch' "Vim sugar for UNIX shell commands
+Plugin 'tpope/vim-fugitive' "Helpful git addon
+Plugin 'tpope/vim-repeat' "Enable . for special commands
+Plugin 'tpope/vim-sensible' "Common ground of all vim users
+Plugin 'tpope/vim-surround' "Change surroundings easily
+Plugin 'embear/vim-localvimrc' " Use local .vimrc files for specific projects
 
 
-" Eye Candy
-Plug 'itchyny/lightline.vim' "Theme
-Plug 'mhinz/vim-startify' "Custom vim startup page
-Plug 'ap/vim-css-color' "Show color highlights
+" " Eye Candy
+Plugin 'itchyny/lightline.vim' "Theme
+Plugin 'mhinz/vim-startify' "Custom vim startup page
+Plugin 'ap/vim-css-color' "Show color highlights
 
 " Search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 " Autocompletion
-Plug 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim', {'do': 'yarn install --froze-lockfile'}
 
 " Language Syntax Support
-Plug 'sheerun/vim-polyglot' "Syntax for all languages
-Plug 'reasonml-editor/vim-reason-plus' " ReasonML syntax
-Plug 'andreshazard/vim-freemarker' " Freemarker Syntax
+Plugin 'sheerun/vim-polyglot' "Syntax for all languages
+Plugin 'reasonml-editor/vim-reason-plus' " ReasonML syntax
+Plugin 'andreshazard/vim-freemarker' " Freemarker Syntax
+Plugin 'udalov/kotlin-vim'
 
 " Linting
-Plug 'w0rp/ale' "Asynchronous Linting Engine
+Plugin 'dense-analysis/ale' "Asynchronous Linting Engine
 
-call plug#end()
+call vundle#end()
 
 " -----------------------------------------------------------------------------
 " KEY BINDINGS
@@ -84,6 +87,7 @@ call plug#end()
 "Enter newlines without entering insert mode
 nmap <CR> o<Esc>k
 " Tab Navigation
+"
 nnoremap tj  :tabprev<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tn  :tabnew<CR>
@@ -91,25 +95,22 @@ nnoremap tn  :tabnew<CR>
 nnoremap fzf :FZF<CR>
 nnoremap ; :Buffers<CR>
 nnoremap , :Ag<CR>
-" Dissable arrow keys
+" Disable arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" LanguageServer keypms
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
-nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
-nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
-
 " -----------------------------------------------------------------------------
 " PLUGIN SPECIFIC SETTINGS
 " -----------------------------------------------------------------------------
+" Start autocomplete
+let g:deoplete#enable_at_startup = 1
 
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
 " Fugitive to status line
-set statusline+=%{fugitive#statusline()}
+" set statusline+=%{fugitive#statusline()}
 " Enable tag matching in these files
 let g:mta_use_matchparen_group = 1
 let g:mta_filetypes = {
@@ -119,16 +120,30 @@ let g:mta_filetypes = {
     \ 'xml' : 1,
     \ 'jinja' : 1,
     \ 'ftl' : 1,
-    \}
+    \ }
 "Closing hmtl tags
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.vue"
 "Set some frontend filetypes
 autocmd BufNewFile,BufRead .babelrc set filetype=javascript
+autocmd BufNewFile,BufRead *.es6 set filetype=javascript
+autocmd BufNewFile,BufRead *.ftl set filetype=javascript
 autocmd BufNewFile,BufRead .eslintrc,.reduxrc set filetype=json
 autocmd BufNewFile,BufRead gitconfig set filetype=gitconfig
+autocmd BufNewFile,BufRead *.vue set filetype=vue
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
 "Dont hide JSON syntax.
 let g:vim_json_syntax_conceal = 0
 "Set cursor word highlight to 100ms
 let g:HiCursorWords_delay = 100
 " Load local .vimrc files - .lvimrc without asking
 let g:localvimrc_ask = 0
+" Configure ALE to work with vue templates
+let g:ale_linter_aliases = {'vue': 'typescript'}
+" Enabled ale linters
+let g:ale_linters = {'vue': ['eslint']}
+" Enabled ale fixers
+let g:ale_fixers = {
+\ '*': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'vue': ['prettier'],
+\}
+let g:ale_fix_on_save = 1 " Run fixer after save
