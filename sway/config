@@ -24,11 +24,19 @@ set $menu rofi -show run -theme Monokai | xargs swaymsg exec
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/.sway/wall.png fit
+output eDP-1 background ~/.sway/elcapitan.png fit
+output DP-1 background ~/.sway/iceland.png fit
+output DP-2 background ~/.sway/paint-tree.png fit
 #
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1600x900 position 0,300
+output DP-1 resolution 2560x1440 position 1600,0
+
+bindsym $mod+Shift+b move workspace to output eDP-1
+bindsym $mod+Shift+n move workspace to output DP-2
+bindsym $mod+Shift+m move workspace to output DP-1
+
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -36,10 +44,10 @@ output * background ~/.sway/wall.png fit
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 600 'swaylock -f -i ~/.sway/wall-lock.png' \
-         timeout 1800 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+# exec swayidle -w \
+#          timeout 600 'swaylock -f -i ~/.sway/elcapitan-lock.png' \
+#          timeout 1800 'swaymsg "output * dpms off"' \
+#               resume 'swaymsg "output * dpms on"' \
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -83,11 +91,11 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # lock
-    bindsym $mod+Shift+z exec swaylock -i ~/.sway/wall-lock.png
+    bindsym $mod+Shift+z exec fika || swaylock -i DP-1:~/.sway/iceland-lock.png -i eDP-1:~/.sway/elcapitan-lock.png -i DP-2:~/.sway/paint-tree-lock.png
 
     # sound
-    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 5%+
-    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 5%-
+    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+
+    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 10%-
     bindsym XF86AudioMute exec amixer -Dpulse set Master toggle
     bindsym $mod+X exec cmus-remote --pause
 
@@ -129,8 +137,8 @@ exec swayidle -w \
     set $term2 "4: "
     set $mail "5: "
     set $notes "6: "
-    set $blank2 "7: "
-    set $blank3 "8: "
+    set $chat "7: "
+    set $music "8: "
     set $blank4 "9: "
     set $blank5 "10: "
 
@@ -141,8 +149,8 @@ exec swayidle -w \
     bindsym $mod+4 workspace $term2
     bindsym $mod+5 workspace $mail
     bindsym $mod+6 workspace $notes
-    bindsym $mod+7 workspace $blank2
-    bindsym $mod+8 workspace $blank3
+    bindsym $mod+7 workspace $chat
+    bindsym $mod+8 workspace $music
     bindsym $mod+9 workspace $blank4
     bindsym $mod+0 workspace $blank5
     # move focused container to workspace
@@ -152,8 +160,8 @@ exec swayidle -w \
     bindsym $mod+Shift+4 move container to workspace $term2
     bindsym $mod+Shift+5 move container to workspace $mail
     bindsym $mod+Shift+6 move container to workspace $notes
-    bindsym $mod+Shift+7 move container to workspace $blank2
-    bindsym $mod+Shift+8 move container to workspace $blank3
+    bindsym $mod+Shift+7 move container to workspace $chat
+    bindsym $mod+Shift+8 move container to workspace $music
     bindsym $mod+Shift+9 move container to workspace $blank4
     bindsym $mod+Shift+0 move container to workspace $blank5
     # Note: workspaces can have any name you want, not just numbers.
@@ -251,11 +259,34 @@ bar {
     font FiraCode Bold 10
 }
 
+# bar {
+#     status_command while ~/.sway/status-top.sh; do sleep 30; done
+#     position top
+#     workspace_buttons no
+#     colors {
+#         statusline #f8f8f2
+#         background #272822
+#         inactive_workspace #323232 #323232 #5c5c5c
+#     }
+#     font FiraCode Bold 10
+# }
+
 #
 # App specific config
 #
 
 for_window [title="^Mozilla Firefox$"] move container to workspace $firefox
+
 for_window [title="^Mozilla Thunderbird$"] move container to workspace $mail
+
+for_window [title="^Spotify$"] move container to workspace $music
+
+for_window [title="^Slack$"] move container to workspace $chat
+for_window [title="^Slack - GoOut$"] move container to workspace $chat
+for_window [title="^Discord$"] move container to workspace $chat
+for_window [title="^Discord Updater$"] move container to workspace $chat
+for_window [title="^Telegram$"] move container to workspace $chat
+
+for_window [title="^Mark Text$"] move container to workspace $notes
 
 include /etc/sway/config.d/*
