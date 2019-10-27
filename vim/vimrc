@@ -78,6 +78,8 @@ Plugin 'reasonml-editor/vim-reason-plus' " ReasonML syntax
 Plugin 'andreshazard/vim-freemarker' " Freemarker Syntax
 Plugin 'udalov/kotlin-vim'
 
+Plugin 'vimwiki/vimwiki'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 
@@ -101,6 +103,8 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+nnoremap <C-g> :Goyo<CR>
 
 " -----------------------------------------------------------------------------
 " PLUGIN SPECIFIC SETTINGS
@@ -141,3 +145,17 @@ let g:coc_filetype_map = {
   \ '*.ts': 'typescript',
   \ }
 
+let g:vim_markdown_conceal = 0
+
+let g:vimwiki_list = [{'path': '~/Notes/', 'syntax': 'markdown', 'ext': '.md'}]
+
+function! s:goyo_enter()
+  colorscheme plan9
+endfunction
+
+function! s:goyo_leave()
+  colorscheme monokai
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
