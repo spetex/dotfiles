@@ -39,7 +39,6 @@ if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
     ninrod/pass-zsh-completion \
     paulmelnikow/zsh-startup-timer \
     robbyrussell/oh-my-zsh \
-    urbainvaes/fzf-marks \
     willghatch/zsh-saneopt \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
@@ -81,8 +80,8 @@ export SDL_VIDEODRIVER=wayland
 
 # FZF config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="fd . $HOME"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
 # Load RVM into a shell session *as a function*
