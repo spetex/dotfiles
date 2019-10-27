@@ -68,6 +68,8 @@ alias painting="newsboat -u .newsboat/painting.urls -c .newsboat/painting.db"
 alias technews="newsboat -u .newsboat/technews.urls -c .newsboat/technews.db"
 alias podcast="newsboat -u .newsboat/podcast.urls -c .newsboat/podcast.db"
 
+alias notes="cd ~/Notes && vim index.md"
+
 # PyEnv Configuration
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
