@@ -91,7 +91,7 @@ bindsym $mod+Shift+m move workspace to output DP-1
     bindsym $mod+Shift+c reload
 
     # lock
-    bindsym $mod+Shift+z exec fika || swaylock -i DP-1:~/.sway/iceland-lock.png -i eDP-1:~/.sway/elcapitan-lock.png -i DP-2:~/.sway/paint-tree-lock.png
+    bindsym $mod+Shift+z swaylock -i DP-1:~/.sway/iceland-lock.png -i eDP-1:~/.sway/elcapitan-lock.png -i DP-2:~/.sway/paint-tree-lock.png
 
     # sound
     bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+
@@ -220,6 +220,7 @@ bindsym $mod+Shift+m move workspace to output DP-1
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -259,34 +260,16 @@ bar {
     font FiraCode Bold 10
 }
 
-# bar {
-#     status_command while ~/.sway/status-top.sh; do sleep 30; done
-#     position top
-#     workspace_buttons no
-#     colors {
-#         statusline #f8f8f2
-#         background #272822
-#         inactive_workspace #323232 #323232 #5c5c5c
-#     }
-#     font FiraCode Bold 10
-# }
-
 #
 # App specific config
 #
-
 for_window [title="^Mozilla Firefox$"] move container to workspace $firefox
-
 for_window [title="^Mozilla Thunderbird$"] move container to workspace $mail
-
 for_window [title="^Spotify$"] move container to workspace $music
-
 for_window [title="^Slack$"] move container to workspace $chat
 for_window [title="^Slack - GoOut$"] move container to workspace $chat
 for_window [title="^Discord$"] move container to workspace $chat
 for_window [title="^Discord Updater$"] move container to workspace $chat
-for_window [title="^Telegram$"] move container to workspace $chat
-
-for_window [title="^Mark Text$"] move container to workspace $notes
+for_window [title="Telegram"] move container to workspace $chat
 
 include /etc/sway/config.d/*

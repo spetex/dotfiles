@@ -151,4 +151,4 @@ headphones=$(GetHeadphonesStatus)
 articles=" $(newsboat -x print-unread | awk '{print $1}')"
 
 
-echo "$fan   $temp   $kernel   $articles   $uptime   ${wifi}  ${wifi_signal:8}$wifi_ip$ethernet   $bluetooth   $battery0  $battery1   $headphones$audio_status $audio_volume   $date_formatted "
+echo "$fan   $temp   $kernel   $uptime   ${wifi}  ${wifi_signal:8}$wifi_ip$ethernet   $bluetooth   $battery0  $battery1   $headphones$audio_status $audio_volume   $date_formatted "
