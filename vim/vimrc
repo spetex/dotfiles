@@ -78,8 +78,6 @@ Plugin 'reasonml-editor/vim-reason-plus' " ReasonML syntax
 Plugin 'andreshazard/vim-freemarker' " Freemarker Syntax
 Plugin 'udalov/kotlin-vim'
 
-" Linting
-Plugin 'dense-analysis/ale' "Asynchronous Linting Engine
 
 call vundle#end()
 
@@ -129,21 +127,17 @@ autocmd BufNewFile,BufRead *.es6 set filetype=javascript
 autocmd BufNewFile,BufRead *.ftl set filetype=javascript
 autocmd BufNewFile,BufRead .eslintrc,.reduxrc set filetype=json
 autocmd BufNewFile,BufRead gitconfig set filetype=gitconfig
-autocmd BufNewFile,BufRead *.vue set filetype=vue
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.vue set filetype=vue
 "Dont hide JSON syntax.
 let g:vim_json_syntax_conceal = 0
 "Set cursor word highlight to 100ms
 let g:HiCursorWords_delay = 100
 " Load local .vimrc files - .lvimrc without asking
 let g:localvimrc_ask = 0
-" Configure ALE to work with vue templates
-let g:ale_linter_aliases = {'vue': 'typescript'}
-" Enabled ale linters
-let g:ale_linters = {'vue': ['eslint']}
-" Enabled ale fixers
-let g:ale_fixers = {
-\ '*': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'vue': ['prettier'],
-\}
-let g:ale_fix_on_save = 1 " Run fixer after save
+
+let g:coc_filetype_map = {
+  \ '*.vue': 'vue',
+  \ '*.ts': 'typescript',
+  \ }
+
