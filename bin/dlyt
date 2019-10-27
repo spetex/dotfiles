@@ -1,0 +1,5 @@
+#!/bin/bash
+notify-send "Downloading Youtube Videos & Podcasts"
+
+youtube-dl --batch-file ~/.newsboat/youtube.queue -o "~/Videos/%(title)s.%(ext)s" --restrict-filename && echo "" > ~/.newsboat/youtube.queue && notify-send "Youtube Videos Downloaded"
+youtube-dl --batch-file ~/.newsboat/podcast.queue -o "~/Podcasts/%(title)s.%(ext)s" --restrict-filename -x && echo "" > ~/.newsboat/podcast.queue && notify-send "Podcasts Downloaded"
