@@ -41,7 +41,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " QOL Plugins
-Plugin 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
+" Plugin 'BobWhitelock/HiCursorWords' "Highlight same words under cursor
+Plugin 'hotoo/highlight-cursor-word.vim' "Highlight same words under cursor
 Plugin 'Valloric/MatchTagAlways' "Highlight matching tag
 Plugin 'ntpeters/vim-better-whitespace' "Highlight whitespace in files
 Plugin 'henrik/vim-indexed-search' "Adds number of results to search
