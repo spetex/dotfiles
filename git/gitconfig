@@ -4,6 +4,8 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
+[merge]
+    conflictstyle = diff3
 [color]
     status=auto
     branch=auto
