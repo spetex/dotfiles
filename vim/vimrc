@@ -70,16 +70,14 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 
 " Autocompletion
-Plugin 'neoclide/coc.nvim', {'do': 'yarn install --froze-lockfile'}
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 " Language Syntax Support
 Plugin 'sheerun/vim-polyglot' "Syntax for all languages
 Plugin 'reasonml-editor/vim-reason-plus' " ReasonML syntax
 Plugin 'andreshazard/vim-freemarker' " Freemarker Syntax
 Plugin 'udalov/kotlin-vim'
-
-Plugin 'vimwiki/vimwiki'
-Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 
@@ -109,6 +107,10 @@ nnoremap <C-g> :Goyo<CR>
 " -----------------------------------------------------------------------------
 " PLUGIN SPECIFIC SETTINGS
 " -----------------------------------------------------------------------------
+
+let g:coc_node_path = '/home/spetex/.nvm/versions/node/v13.11.0/bin/node'
+
+
 " Enable JSX syntax highlighting in .js files
 let g:jsx_ext_required = 0
 " Fugitive to status line
@@ -146,18 +148,5 @@ let g:coc_filetype_map = {
   \ }
 
 let g:vim_markdown_conceal = 0
-
-let g:vimwiki_list = [{'path': '~/Notes/', 'syntax': 'markdown', 'ext': '.md'}]
-
-function! s:goyo_enter()
-  colorscheme plan9
-endfunction
-
-function! s:goyo_leave()
-  colorscheme monokai
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 autocmd CursorMoved,CursorHold * silent! call HighlightCursorWord()
