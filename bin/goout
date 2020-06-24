@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd ~/Repos/GoOut/Backend/WebApp
-docker-compose pull && docker-compose up --force-recreate --always-recreate-deps

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ -z $@ ]; then watson restart; else watson start $@; fi
-
-killsocial
-
-rm -rf ~/.sway/status.sh && ln -s ~/.sway/status-focus.sh ~/.sway/status.sh

@@ -1,0 +1,92 @@
+# Add more language specific binary paths
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.pyenv/bin
+export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.bin
+export ZSH="/home/spetex/.oh-my-zsh"
+
+source $ZSH/oh-my-zsh.sh
+source ~/.theme.zsh
+
+# Runtime dir for XWayland
+if test -z "${XDG_RUNTIME_DIR}"; then
+	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+	if ! test -d "${XDG_RUNTIME_DIR}"; then
+		mkdir "${XDG_RUNTIME_DIR}"
+		chmod 0700 "${XDG_RUNTIME_DIR}"
+	fi
+fi
+
+export LANG=en_US.UTF-8
+
+export EDITOR='nvim'
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+fi
+
+# Enable shared history
+setopt inc_append_history
+setopt share_history
+
+# ZR - ZSH Plugin Manager written in rust
+# Generate new ~/.zr/init.zsh whenever ~/.zshrc is modified
+if [[ ! -f ~/.zr/init.zsh ]] || [[ ~/.zshrc -nt ~/.zr/init.zsh ]]; then
+  zr \
+    ninrod/pass-zsh-completion \
+    paulmelnikow/zsh-startup-timer \
+    willghatch/zsh-saneopt \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-history-substring-search \
+    zsh-users/zsh-syntax-highlighting \
+    > ~/.config/zr/zr.zsh
+
+fi
+source ~/.config/zr/zr.zsh
+
+# Load zsh theme
+# source ~/.theme.zsh
+
+# Keybindings for history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Enable vim shortcuts in CLI
+bindkey -v
+set -o vi
+
+alias ls="ls --color"
+alias vim="nvim"
+alias vi="nvim"
+
+# PyEnv Configuration
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+pyenv virtualenvwrapper
+
+# The next line updates PATH for the Google Cloud SDK.
+ if [ -f '/home/spetex/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/spetex/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+ if [ -f '/home/spetex/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/spetex/.google-cloud-sdk/completion.zsh.inc'; fi
+
+# Wayland specific config
+export SDL_VIDEODRIVER=wayland
+export MOZ_ENABLE_WAYLAND=1
+
+# FZF config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="fd . $HOME"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+# Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

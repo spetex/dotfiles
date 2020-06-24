@@ -1,4 +1,0 @@
-#!/bin/bash
-bluetoothctl << EOF
-info 5C:EB:68:78:08:25
-EOF

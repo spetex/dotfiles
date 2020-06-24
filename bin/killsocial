@@ -1,7 +1,0 @@
-#!/bin/bash
-for word in $(pidof slack); do kill $word; done;
-for word in $(pidof Telegram); do kill $word; done;
-for word in $(pidof Discord); do kill $word; done;
-for word in $(pidof discord); do kill $word; done;
-for word in $(pidof thunderbird); do kill $word; done;
-for word in $(pidof newsboat); do kill $word; done;

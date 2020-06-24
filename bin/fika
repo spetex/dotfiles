@@ -1,3 +1,0 @@
-#!/bin/bash
-rm -rf ~/.sway/status.sh && ln -s ~/.sway/status-normal.sh ~/.sway/status.sh
-watson stop

@@ -1,4 +1,0 @@
-#!/bin/bash
-bluetoothctl << EOF
-power on
-EOF
