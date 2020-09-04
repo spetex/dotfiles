@@ -2,7 +2,7 @@
 	name = Petr Sahula
 	email = sahulpet@gmail.com
 [core]
-	editor = nvim
+	editor = vim
 	excludesfile = ~/.gitignore
 [merge]
     conflictstyle = diff3
