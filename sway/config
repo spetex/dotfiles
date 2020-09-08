@@ -1,7 +1,3 @@
-# Read `man 5 sway` for a complete reference.
-
-
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -11,23 +7,16 @@ set $left h
 set $down j
 set $up k
 set $right l
-
-# Start udiskie for automounting disks
-exec udiskie &
-exec insync &
-
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu wofi --show run | xargs swaymsg exec --
-
-set $laptop eDP-1
-
-
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu wofi --show drun | xargs swaymsg exec --
 
 ### Eye Candy
 #
-font pango:FiraSans 10
+font pango:SourceSansProSemibold 12
 
 # remove window decorations
 default_border none
@@ -37,41 +26,37 @@ for_window [class="^.*"] border pixel 1
 gaps inner 20
 gaps outer 0
 
+exec blueman-applet
+exec insync start
 
 
 ### Output configuration
 #
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-output $laptop resolution 1600x900 position 0,0
-output DP-1 resolution 2560x1440 position 1600,100
-output DP-4 resolution 1920x1200 position 0,0
-output DP-5 resolution 1920x1080 position 1920,100
-output DP-6 resolution 1920x1200 position 0,0
-output DP-7 resolution 1920x1080 position 1920,100
-
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
-
-
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.config/sway/forest.jpg fill
+#
+# Example configuration:
+#
+output DP-4	resolution 1920x1200	position 0,0
+output DP-5	resolution 1920x1080	position 1920,100
+output eDP-1	resolution 1920x1080	position 3840,130
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
 # Example configuration:
 #
+
 exec swayidle -w \
-         timeout 3600 'swaylock -f -c 000000' \
-         timeout 4000 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+         timeout 900 'swaylock -f -c 000000' \
+         timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
-
 
 ### Input configuration
 #
@@ -87,8 +72,6 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-
-
 ### Key bindings
 #
 # Basics:
@@ -101,7 +84,7 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
+    
     bindsym $mod+p exec grim $(date +'%Y-%m-%d-%H%M%S_grim.png')
     bindsym $mod+Shift+p exec grim -g "$(slurp)" $(date +'%Y-%m-%d-%H%M%S_grim.png')
 
@@ -111,33 +94,22 @@ exec swayidle -w \
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+    
+    bindsym $mod+g		gaps outer current plus 5
+    bindsym $mod+Shift+g	gaps outer current minus 5
+
+    # lock screen
+    bindsym $mod+Shift+z exec swaylock -c 000000
+
+    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+ && aplay ~/.config/sway/sound.wav
+    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 10%- && aplay ~/.config/sway/sound.wav
+    bindsym XF86AudioMute exec amixer -Dpulse set Master toggle
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
-    bindsym $mod+g	    gaps outer current plus 5
-    bindsym $mod+Shift+g	gaps outer current minus 5
-
-    # lock screen
-    bindsym $mod+Shift+z exec swaylock -c 000000
-
-    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 5%+
-    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 5%-
-    bindsym XF86AudioMute exec amixer -Dpulse set Master toggle
-
-    bindsym $mod+Ctrl+p exec playerctl play-pause
-
-    bindsym $mod+m output $laptop toggle
-
-   # bindsym $mod+, output DP-4 enable
-   # bindsym $mod+Shift+, output DP-4 disable
-
-   # bindsym $mod+. output DP-5 enable
-   # bindsym $mod+Shift+. output DP-5 disable
-
 #
 # Moving around:
 #
@@ -162,38 +134,37 @@ exec swayidle -w \
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-
-    # move workspaces to screens
-    bindsym $mod+Shift+b move workspace to output left
-    bindsym $mod+Shift+n move workspace to output right
-
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    
+    # move workspaces to screens
+    bindsym $mod+Shift+b move workspace to output left
+    bindsym $mod+Shift+n move workspace to output right
 #
 # Layout stuff:
 #
@@ -256,8 +227,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
-
 #
 # Status Bar:
 #
@@ -266,12 +235,13 @@ bar {
     swaybar_command waybar
 }
 
-
-
 #
 # Specific app settings:
 #
 for_window [title="^Volume Control$"] floating enable
 for_window [title="^Bluetooth Devices$"] floating enable
+for_window [title="^Insync$"] floating enable
+for_window [title="^Telegram$"] floating enable
+for_window [title="^waybar$"] floating enable
 
-# include /etc/sway/config.d/*
+include /etc/sway/config.d/*

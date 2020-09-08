@@ -2,7 +2,8 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FiraSans, Roboto, Helvetica, Arial, sans-serif;
+    font-family: SourceSansPro, sans-serif;
+    font-weight: 600;
     font-size: 13px;
     min-height: 0;
 }
@@ -85,7 +86,7 @@ window#waybar.chromium {
     color: #ffffff;
 }
 
-/*
+
 #clock {
     background-color: #64727D;
 }
@@ -98,7 +99,7 @@ window#waybar.chromium {
     color: #ffffff;
     background-color: #26A65B;
 }
-*/
+
 
 @keyframes blink {
     to {
@@ -121,7 +122,6 @@ label:focus {
     background-color: #000000;
 }
 
-/*
 #cpu {
     background-color: #2ecc71;
     color: #000000;
@@ -209,4 +209,3 @@ label:focus {
 #mpd.paused {
     background-color: #51a37a;
 }
-*/
