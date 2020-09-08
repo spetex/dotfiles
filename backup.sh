@@ -26,3 +26,15 @@ cp -r /usr/src/linux/.config kernel/config && echo "done"
 
 printf "Backup fstab file... "
 cp -r /etc/fstab etc/fstab && echo "done"
+
+printf "Backup fstab file... "
+cp -r /etc/fstab etc/fstab && echo "done"
+
+printf "Backup world file... "
+cp -r /var/lib/portage/world gentoo/world && echo "done"
+
+printf "Backup make.conf file... "
+cp -r /etc/portage/make.conf etc/make.conf && echo "done"
+
+printf "Backup grub default file... "
+cp -r /etc/default/grub etc/grub && echo "done"
