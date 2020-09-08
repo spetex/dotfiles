@@ -9,6 +9,15 @@ cp ~/.config/waybar/* waybar/ && echo "done"
 printf "Backup kitty config... "
 cp ~/.config/kitty/* kitty/ && echo "done"
 
+printf "Backup wofi config... "
+cp ~/.config/wofi/* wofi/ && echo "done"
+
+printf "Backup ranger config... "
+cp -r ~/.config/ranger/* ranger/ && echo "done"
+
+printf "Backup Atom deps... "
+apm list > atom/apm && echo "done"
+
 printf "Backup bashrc file... "
 cp ~/.bashrc shell/bashrc && echo "done"
 
