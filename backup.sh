@@ -18,6 +18,9 @@ cp -r ~/.config/ranger/* ranger/ && echo "done"
 printf "Backup Atom deps... "
 apm list > atom/apm && echo "done"
 
+printf "Backup Atom config... "
+cp ~/.atom/config.cson atom/config.cson && echo "done"
+
 printf "Backup bashrc file... "
 cp ~/.bashrc shell/bashrc && echo "done"
 

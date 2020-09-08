@@ -1,0 +1,24 @@
+"*":
+  core:
+    autoHideMenuBar: true
+    telemetryConsent: "limited"
+  editor:
+    fontFamily: "SourceCodePro, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 15
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "2c91aaba-27b1-4b2c-a9e5-81cbdd62d2f5"
+  "linter-eslint":
+    scopes: [
+      "source.js"
+      "source.jsx"
+      "source.js.jsx"
+      "source.flow"
+      "source.babel"
+      "source.js-semantic"
+      "source.ts"
+      "source.tsx"
+    ]
+  "linter-ui-default":
+    panelHeight: 226
