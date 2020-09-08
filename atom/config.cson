@@ -3,8 +3,8 @@
     autoHideMenuBar: true
     telemetryConsent: "limited"
   editor:
-    fontFamily: "SourceCodePro, Menlo, Consolas, DejaVu Sans Mono, monospace"
-    fontSize: 15
+    fontFamily: "Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 13
     showIndentGuide: true
     showInvisibles: true
   "exception-reporting":
