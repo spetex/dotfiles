@@ -23,3 +23,6 @@ cp -r ~/.vim/colors vim/ && echo "done"
 
 printf "Backup kernel config file... "
 cp -r /usr/src/linux/.config kernel/config && echo "done"
+
+printf "Backup fstab file... "
+cp -r /etc/fstab etc/fstab && echo "done"
