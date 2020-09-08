@@ -9,6 +9,9 @@ cp ~/.config/waybar/* waybar/ && echo "done"
 printf "Backup kitty config... "
 cp ~/.config/kitty/* kitty/ && echo "done"
 
+printf "Backup bashrc file... "
+cp ~/.bashrc shell/bashrc && echo "done"
+
 printf "Backup git config... "
 cp ~/.gitconfig git/gitconfig && echo "done"
 
