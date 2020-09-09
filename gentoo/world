@@ -48,6 +48,7 @@ net-misc/curl
 net-misc/insync
 net-misc/networkmanager
 net-misc/openssh
+net-news/newsboat
 net-wireless/blueman
 net-wireless/bluez
 sys-apps/dbus
