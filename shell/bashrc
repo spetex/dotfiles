@@ -30,3 +30,5 @@ export MOZ_NO_REMOTE="yes"
 
 source /usr/share/bash-completion/completions/git
 source ~/.gooutrc
+
+[ -x /bin/fish ] && SHELL=/bin/fish exec /bin/fish

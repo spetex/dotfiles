@@ -9,6 +9,9 @@ cp ~/.config/waybar/* waybar/ && echo "done"
 printf "Backup kitty config... "
 cp ~/.config/kitty/* kitty/ && echo "done"
 
+printf "Backup fish config... "
+cp -r ~/.config/fish/* fish/ && echo "done"
+
 printf "Backup wofi config... "
 cp ~/.config/wofi/* wofi/ && echo "done"
 

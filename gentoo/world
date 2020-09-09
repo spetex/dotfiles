@@ -16,6 +16,7 @@ app-portage/euses
 app-portage/flaggie
 app-portage/genlop
 app-portage/gentoolkit
+app-shells/fish
 dev-java/maven-bin
 dev-libs/libappindicator
 dev-libs/libdbusmenu
@@ -31,10 +32,14 @@ media-fonts/source-code-pro
 media-fonts/source-pro
 media-fonts/source-sans-pro
 media-gfx/feh
+media-gfx/gimp
 media-sound/alsa-utils
 media-sound/pavucontrol
 media-sound/pulseaudio
 media-sound/spotify
+media-video/mpv
+net-firewall/iptables
+net-firewall/ufw
 net-im/telegram-desktop
 net-misc/curl
 net-misc/insync
@@ -60,6 +65,7 @@ sys-kernel/gentoo-sources
 sys-kernel/linux-firmware
 sys-process/htop
 virtual/jdk
+www-client/brave-bin
 www-client/chromium
 www-client/firefox
 x11-terms/kitty
