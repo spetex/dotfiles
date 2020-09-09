@@ -40,7 +40,10 @@ media-sound/spotify
 media-video/mpv
 net-firewall/iptables
 net-firewall/ufw
+net-im/bitlbee
 net-im/telegram-desktop
+net-im/telegram-purple
+net-irc/weechat
 net-misc/curl
 net-misc/insync
 net-misc/networkmanager
