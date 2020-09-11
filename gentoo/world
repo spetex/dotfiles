@@ -33,6 +33,7 @@ media-fonts/source-pro
 media-fonts/source-sans-pro
 media-gfx/feh
 media-gfx/gimp
+media-gfx/imagemagick
 media-sound/alsa-utils
 media-sound/pavucontrol
 media-sound/pulseaudio
@@ -49,6 +50,7 @@ net-misc/insync
 net-misc/networkmanager
 net-misc/openssh
 net-news/newsboat
+net-p2p/transmission
 net-wireless/blueman
 net-wireless/bluez
 sys-apps/dbus
@@ -72,4 +74,5 @@ virtual/jdk
 www-client/brave-bin
 www-client/chromium
 www-client/firefox
+x11-plugins/purple-discord
 x11-terms/kitty
