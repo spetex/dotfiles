@@ -23,6 +23,7 @@ dev-libs/libdbusmenu
 dev-libs/wayland
 dev-vcs/git
 gui-apps/grim
+gui-apps/mako
 gui-apps/slurp
 gui-apps/waybar
 gui-apps/wofi

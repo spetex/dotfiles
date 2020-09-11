@@ -28,6 +28,7 @@ gaps outer 0
 
 exec blueman-applet
 exec insync start
+exec mako
 
 
 ### Output configuration

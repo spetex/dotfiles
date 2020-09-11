@@ -15,6 +15,9 @@ cp -r ~/.config/fish/* fish/ && echo "done"
 printf "Backup wofi config... "
 cp ~/.config/wofi/* wofi/ && echo "done"
 
+printf "Backup mako config... "
+cp -r ~/.config/mako/* mako/ && echo "done"
+
 printf "Backup ranger config... "
 cp -r ~/.config/ranger/* ranger/ && echo "done"
 
