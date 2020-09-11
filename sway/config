@@ -103,8 +103,8 @@ exec swayidle -w \
     # lock screen
     bindsym $mod+Shift+z exec swaylock -f -F -i ~/.config/sway/wallpaper-lock.jpg 
 
-    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+ && aplay ~/.config/sway/sound.wav
-    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 10%- && aplay ~/.config/sway/sound.wav
+    bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+
+    bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 10%-
     bindsym XF86AudioMute exec amixer -Dpulse set Master toggle
 
     # Reload the configuration file
