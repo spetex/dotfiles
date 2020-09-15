@@ -93,9 +93,10 @@
 ├── language-xml@0.35.3
 └── language-yaml@0.32.0
 
-[36mCommunity Packages (9)[39m /home/spetex/.atom/packages
+[36mCommunity Packages (10)[39m /home/spetex/.atom/packages
 ├── atom-typescript@13.9.2
 ├── busy-signal@2.0.1
+├── ide-svelte@0.1.1
 ├── intentions@1.1.5
 ├── linter@2.3.1
 ├── linter-eslint@8.5.5
