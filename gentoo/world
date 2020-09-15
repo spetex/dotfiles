@@ -21,6 +21,7 @@ dev-java/maven-bin
 dev-libs/libappindicator
 dev-libs/libdbusmenu
 dev-libs/wayland
+dev-util/insomnia-bin
 dev-vcs/git
 gui-apps/grim
 gui-apps/mako
