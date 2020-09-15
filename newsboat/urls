@@ -9,9 +9,11 @@ https://overreacted.io/rss.xml                                  "~  Overreact
 https://mtlynch.io/feed.xml                                     "~  Michael Lynch"                   blog tech
 https://daringfireball.net/feeds/main                           "~  Daring Fireball"                 blog tech
 http://feeds.feedburner.com/codinghorror                        "~  Coding Horror"                   blog tech
+
 https://devblogs.microsoft.com/typescript/feed/                 "~  TypeScript Releases"             tech release
 https://gentoo.org/feeds/news.xml                               "~  Gentoo News"                     tech release
 https://www.ruby-lang.org/en/feeds/news.rss                     "~  Ruby Lang"                       tech release
+
 https://planet.gentoo.org/rss20.xml                             "~  Planet Gentoo"                   news tech
 https://blog.mozilla.org/firefox/feed/                          "~  The Firefox Frontier"            news tech
 https://www.mozilla.cz/feed/                                    "~  Mozilla.cz"                      news tech
@@ -23,11 +25,16 @@ https://lwn.net/headlines/newrss                                "~  LWM.net" 
 https://css-tricks.com/feed/                                    "~  CSS Tricks"                      news tech
 https://alistapart.com/main/feed/                               "~  A List Apart"                    news tech
 https://www.smashingmagazine.com/feed/                          "~  Smashing Magazine"               news tech
+
 https://frontendfoc.us/rss/1120p4jd                             "~  Frontend Focus"                  newsletter tech
 https://javascriptweekly.com/rss/1cgj9je9                       "~  JavaScript Weekly"               newsletter tech
 https://vuejsfeed.com/feed                                      "~  Vue.js Feed"                     newsletter tech
 https://this-week-in-rust.org/rss.xml                           "~  This Week in Rust"               newsletter tech
+
 https://austinkleon.com/feed/                                   "~  Austin Kleon"                    blog creativity
 http://feeds.kottke.org/main                                    "~  Kottke"                          blog creativity
 https://om.co/feed/                                             "~  Om Malik"                        blog creativity
+https://durmonski.com/feed/                                     "~  Ivaylo Durmonski"                blog productivity 
+
+
 https://www.reddit.com/r/swaywm.rss                             "~  reddit/r/swaywm"                 reddit tech
