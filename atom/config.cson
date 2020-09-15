@@ -22,3 +22,6 @@
     ]
   "linter-ui-default":
     panelHeight: 226
+  "rubocop-auto-correct":
+    autoRun: true
+    rubocopCommandPath: "/home/spetex/.rvm/gems/ruby-2.7.0/bin/rubocop"
