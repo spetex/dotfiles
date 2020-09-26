@@ -42,6 +42,8 @@ output * bg ~/.config/sway/wallpaper.jpg fill
 output DP-4	resolution 1920x1200	position 0,0
 output DP-5	resolution 1920x1080	position 1920,100
 output eDP-1	resolution 1920x1080	position 3840,130
+output DP-6	resolution 1920x1200	position 0,0
+output DP-7	resolution 1920x1080	position 1920,100
 
 
 #
