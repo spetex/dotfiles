@@ -51,6 +51,7 @@ net-misc/curl
 net-misc/insync
 net-misc/networkmanager
 net-misc/openssh
+net-misc/youtube-dl
 net-news/newsboat
 net-p2p/transmission
 net-wireless/blueman
