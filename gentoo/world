@@ -74,7 +74,7 @@ sys-kernel/gentoo-sources
 sys-kernel/linux-firmware
 sys-process/htop
 virtual/jdk
-www-client/brave-bin
+virtual/wine
 www-client/chromium
 www-client/firefox
 x11-plugins/purple-discord
