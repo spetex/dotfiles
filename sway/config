@@ -89,7 +89,7 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    
+
     bindsym $mod+p exec grim $(date +'%Y-%m-%d-%H%M%S_grim.png')
     bindsym $mod+Shift+p exec grim -g "$(slurp)" $(date +'%Y-%m-%d-%H%M%S_grim.png')
 
@@ -99,16 +99,18 @@ exec swayidle -w \
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
-    
+
     bindsym $mod+g		gaps outer current plus 5
     bindsym $mod+Shift+g	gaps outer current minus 5
 
     # lock screen
-    bindsym $mod+Shift+z exec swaylock -f -F -i ~/.config/sway/wallpaper-lock.jpg 
+    bindsym $mod+Shift+z exec swaylock -f -F -i ~/.config/sway/wallpaper-lock.jpg
 
     bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+
     bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 10%-
     bindsym XF86AudioMute exec amixer -Dpulse set Master toggle
+    bindsym XF86MonBrightnessUp exec light -A 20
+    bindsym XF86MonBrightnessDown exec light -U 20
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -178,7 +180,7 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace $WS0
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-    
+
     # move workspaces to screens
     bindsym $mod+Shift+b move workspace to output left
     bindsym $mod+Shift+n move workspace to output right
@@ -261,8 +263,8 @@ for_window [title="^Insync$"] floating enable
 for_window [title="^Telegram$"] floating enable
 for_window [title="^waybar$"] floating enable
 
-for_window [title="Brave"] move container to workspace $WS1
-for_window [title="Atom"] move container to workspace $WS2
+for_window [title="Chromium$"] move container to workspace $WS1
+for_window [title="Visual Studio Code$"] move container to workspace $WS2
 for_window [title="Spotify Premium"] move container to workspace $WS8
 
 include /etc/sway/config.d/*
