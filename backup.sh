@@ -21,12 +21,6 @@ cp -r ~/.config/mako/* mako/ && echo "done"
 printf "Backup ranger config... "
 cp -r ~/.config/ranger/* ranger/ && echo "done"
 
-printf "Backup Atom deps... "
-apm list > atom/apm && echo "done"
-
-printf "Backup Atom config... "
-cp ~/.atom/config.cson atom/config.cson && echo "done"
-
 printf "Backup newsboat config... "
 cp ~/.newsboat/config newsboat/config && echo "done"
 
