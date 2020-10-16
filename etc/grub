@@ -29,7 +29,8 @@ GRUB_CMDLINE_LINUX="rd.luks.name=6aaacf6c-43c9-4b35-bf51-c729ac18270a=system rd.
 # GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"
 
 # Append parameters to the linux kernel command line for non-recovery entries
-GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=b8e41dcf-5f1d-4772-8c1d-9668b46e0deb resume_offset=11978915 mem_sleep_default=deep quiet splash rw"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rw"
+# GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=b8e41dcf-5f1d-4772-8c1d-9668b46e0deb resume_offset=11978915 mem_sleep_default=deep quiet splash rw"
 
 # Uncomment to disable graphical terminal (grub-pc only)
 #GRUB_TERMINAL=console
