@@ -4,9 +4,11 @@ app-crypt/gentoo-keys
 app-crypt/gnupg
 app-editors/atom-bin
 app-editors/vim
+app-editors/vscode-bin
 app-emulation/docker
 app-emulation/docker-compose
 app-eselect/eselect-repository
+app-laptop/laptop-mode-tools
 app-misc/neofetch
 app-misc/ranger
 app-misc/screen
@@ -17,9 +19,12 @@ app-portage/flaggie
 app-portage/genlop
 app-portage/gentoolkit
 app-shells/fish
+dev-db/postgresql
+dev-db/pspg
 dev-java/maven-bin
 dev-libs/libappindicator
 dev-libs/libdbusmenu
+dev-libs/light
 dev-libs/wayland
 dev-util/insomnia-bin
 dev-vcs/git
@@ -44,7 +49,6 @@ media-video/mpv
 net-firewall/iptables
 net-firewall/ufw
 net-im/bitlbee
-net-im/telegram-desktop
 net-im/telegram-purple
 net-irc/weechat
 net-misc/curl
