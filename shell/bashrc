@@ -36,3 +36,4 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
 fi
 
 [ -x /bin/fish ] && SHELL=/bin/fish exec /bin/fish
+

@@ -35,7 +35,7 @@ exec mako
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/.config/sway/wallpaper.jpg fill
+output * bg ~/.config/sway/miniscapes.png fill
 #
 # Example configuration:
 #
@@ -55,9 +55,9 @@ output DP-7	resolution 1920x1080	position 1920,100
 #
 
 exec swayidle -w \
-         timeout 900 'swaylock -f -F -i ~/.config/sway/wallpaper-lock.jpg' \
+         timeout 900 'swaylock -f -F -i ~/.config/sway/miniscapes-lock.png' \
          timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -F -i ~/.config/sway/wallpaper-lock.jpg'
+         before-sleep 'swaylock -f -F -i ~/.config/sway/miniscapes-lock.png'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -104,7 +104,7 @@ exec swayidle -w \
     bindsym $mod+Shift+g	gaps outer current minus 5
 
     # lock screen
-    bindsym $mod+Shift+z exec swaylock -f -F -i ~/.config/sway/wallpaper-lock.jpg
+    bindsym $mod+Shift+z exec swaylock -f -F -i ~/.config/sway/miniscapes-lock.png
 
     bindsym XF86AudioRaiseVolume exec amixer -Dpulse set Master 10%+
     bindsym XF86AudioLowerVolume exec amixer -Dpulse set Master 10%-
@@ -265,10 +265,18 @@ for_window [title="^waybar$"] floating enable
 
 for_window [title="Chromium$"] move container to workspace $WS1
 for_window [title="Visual Studio Code$"] move container to workspace $WS2
+for_window [title="Todoist$"] move container to workspace $WS5
+for_window [title="Toggl Track$"] move container to workspace $WS5
+for_window [title="Toggl Track$"] resize set width 30ppt
+for_window [title="ghostwriter$"] move container to workspace $WS5
 for_window [title="Spotify Premium"] move container to workspace $WS8
+for_window [title="^Discord$"] move container to workspace $WS7
 
 include /etc/sway/config.d/*
 
 workspace $WS1 output DP-5
 workspace $WS2 output DP-5
 workspace $WS3 output DP-4
+workspace $WS5 output DP-4
+workspace $WS6 output DP-4
+workspace $WS7 output DP-4

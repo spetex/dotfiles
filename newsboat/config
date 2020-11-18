@@ -15,13 +15,14 @@ browser chromium
 #------------------------------------------------------------------
 color background            white           black
 
-color listnormal            color239        black 
-color listnormal_unread     white           black 
+color listnormal            color239        black
+color listnormal_unread     white           black
 
-color listfocus             black           white            
-color listfocus_unread      red             white           
+color listfocus             black           white
+color listfocus_unread      red             white
 
-color info                  white           red            bold 
-color article               white           black 
+color info                  white           red            bold
+color article               white           black
 
 macro y set browser "echo %u >> ~/.newsboat/youtube.queue" ; open-in-browser ; set browser "chromium %u"
+macro o open-in-browser > /dev/null 2>&1 &
