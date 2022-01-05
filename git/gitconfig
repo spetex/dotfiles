@@ -1,6 +1,6 @@
 [user]
 	name = Petr Sahula
-	email = sahulpet@gmail.com
+	email = mail@petrsahula.cz
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
