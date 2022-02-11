@@ -7,7 +7,7 @@ set nocompatible
 syntax on
 filetype plugin on
 set backupcopy=yes "Do not use swaps and update directly files. (hot reload)
-set clipboard=unnamedplus "Set the OS register for vim clipboard
+set clipboard=unnamed "Set the OS register for vim clipboard
 set cursorline "Highlight current line
 set directory=~/.vim/swps "Dir for swp files.
 set encoding=utf-8 "Always use encoding UTF-8.
