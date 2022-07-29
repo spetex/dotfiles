@@ -63,6 +63,7 @@ Plugin 'tpope/vim-repeat' "Enable . for special commands
 Plugin 'tpope/vim-sensible' "Common ground of all vim users
 Plugin 'tpope/vim-surround' "Change surroundings easily
 Plugin 'embear/vim-localvimrc' " Use local .vimrc files for specific projects
+Plugin 'preservim/nerdtree'
 
 " " Eye Candy
 Plugin 'itchyny/lightline.vim' "Theme
@@ -70,6 +71,7 @@ Plugin 'mhinz/vim-startify' "Custom vim startup page
 Plugin 'ap/vim-css-color' "Show color highlightscall vundle#end()
 Plugin 'drzel/vim-pedant' "Match iterm2 colors to vim colorscheme
 Plugin 'sainnhe/gruvbox-material' "Theme
+Plugin 'arcticicestudio/nord-vim' "Theme
 
 " Search
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -135,11 +137,20 @@ let g:pedant_options = {
       \ 'monokai': ['/Users/mars/.itermcolors/monokai.itermcolors', 'dark'],
       \ }
 
-" Gruvbox Material
+" Colorscheme
 set background=dark
-let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_better_performance = 1
-let g:lightline = {'colorscheme' : 'gruvbox_material'}
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_enable_italic = 1
-colorscheme gruvbox-material
+let g:lightline = {'colorscheme' : 'nord'}
+colorscheme nord
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+let g:nord_bold_vertical_split_line = 1
+let g:nord_uniform_status_lines = 1
+
+nmap ghp <Plug>(GitGutterPreviewHunk)
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
